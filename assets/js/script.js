@@ -47,4 +47,3 @@ function generateReport() {
     document.getElementById('report').textContent = 
         `Total Jam Kerja: ${totalHours} jam. Efisiensi Rata-rata: ${efficiency}%`;
 }
-
