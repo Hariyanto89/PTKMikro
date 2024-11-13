@@ -11,16 +11,16 @@
         <h1>Perencanaan Tenaga Kerja Mikro</h1>
         <form id="workerForm">
             <label for="name">Nama Pekerja:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" placeholder="Masukkan nama pekerja" required>
 
             <label for="position">Posisi:</label>
-            <input type="text" id="position" required>
+            <input type="text" id="position" placeholder="Masukkan posisi" required>
 
             <label for="hours">Jam Kerja (per minggu):</label>
-            <input type="number" id="hours" required>
+            <input type="number" id="hours" placeholder="Masukkan jam kerja" required>
 
             <label for="productivity">Produktivitas (%):</label>
-            <input type="number" id="productivity" required>
+            <input type="number" id="productivity" placeholder="Masukkan produktivitas" required>
 
             <button type="button" onclick="addWorker()">Tambah Pekerja</button>
         </form>
@@ -38,11 +38,10 @@
             <tbody></tbody>
         </table>
 
-        <button onclick="generateReport()">Buat Laporan</button>
+        <button class="generate-btn" onclick="generateReport()">Buat Laporan</button>
         <h2>Laporan Efisiensi</h2>
         <p id="report"></p>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
