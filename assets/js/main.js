@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.querySelector('main');
 
     // Fungsi untuk menampilkan detail di bawah kartu pada layar kecil
-    window.showDetail = function(componentNumber) {
+    window.showDetail = function (componentNumber) {
         const detailTitle = document.getElementById('detailTitle');
         const detailContent = document.getElementById('detailContent');
         const detailContainer = document.querySelector('.detail-container');
-        
-        // Cek apakah sedang dalam tampilan mobile
         const isMobile = window.innerWidth < 768;
 
         // Update konten detail berdasarkan nomor komponen
@@ -115,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        // Jika dalam mode mobile, pindahkan detail container tepat di bawah kartu yang diklik
+        // Pindahkan konten detail di bawah kartu jika dalam mode mobile
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
             if (clickedCard) {
@@ -128,15 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Placeholder function implementations
-    window.addEmployee = function() { alert("Pegawai ditambahkan."); };
-    window.calculateStaffNeeds = function() { alert("Kebutuhan pegawai dihitung."); };
-    window.analyzeInventory = function() { alert("Analisis persediaan pegawai selesai."); };
-    window.addProgram = function() { alert("Program kepegawaian ditambahkan."); };
-    window.evaluatePerformance = function() { alert("Kinerja pegawai dievaluasi."); };
-    window.generateReport = function() { alert("Laporan RTK Mikro dibuat."); };
+    // Implementasi fungsi placeholder untuk tombol
+    window.addEmployee = function () { alert("Pegawai ditambahkan."); };
+    window.calculateStaffNeeds = function () { alert("Kebutuhan pegawai dihitung."); };
+    window.analyzeInventory = function () { alert("Analisis persediaan pegawai selesai."); };
+    window.addProgram = function () { alert("Program kepegawaian ditambahkan."); };
+    window.evaluatePerformance = function () { alert("Kinerja pegawai dievaluasi."); };
+    window.generateReport = function () { alert("Laporan RTK Mikro dibuat."); };
 
-    // Event listener untuk resize, menyesuaikan posisi konten detail
+    // Event listener untuk menyesuaikan posisi konten detail ketika layar diubah
     window.addEventListener('resize', () => {
         const activeComponent = document.querySelector('.card-container .card.active');
         if (activeComponent) {
