@@ -12,42 +12,45 @@
         <p>Berbasis Keputusan Menteri Tenaga Kerja dan Transmigrasi No. 52 Tahun 2014</p>
     </header>
 
-    <!-- Container untuk Kartu-Kartu -->
-    <div class="card-container">
-        <div class="card">
-            <h3>1. Pengumpulan dan Pengolahan Data Pegawai</h3>
-            <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi.</p>
-            <a href="components/employee-data.html" class="button">Lihat Detail</a>
+    <!-- Container untuk Kartu-Kartu dan Detail -->
+    <div class="content-container">
+        <div class="card-container">
+            <div class="card" onclick="showDetail(1)">
+                <h3>1. Pengumpulan dan Pengolahan Data Pegawai</h3>
+                <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
+            <div class="card" onclick="showDetail(2)">
+                <h3>2. Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</h3>
+                <p>Menganalisis beban kerja untuk menentukan kebutuhan tenaga kerja.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
+            <div class="card" onclick="showDetail(3)">
+                <h3>3. Analisis Persediaan Pegawai dan Neraca Pegawai</h3>
+                <p>Menganalisis ketersediaan pegawai dan mengevaluasi neraca kebutuhan tenaga kerja.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
+            <div class="card" onclick="showDetail(4)">
+                <h3>4. Penyusunan Program Kepegawaian</h3>
+                <p>Menyusun program pelatihan dan pengembangan karier pegawai.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
+            <div class="card" onclick="showDetail(5)">
+                <h3>5. Pengendalian dan Evaluasi Kinerja Pegawai</h3>
+                <p>Melakukan evaluasi kinerja pegawai untuk menilai produktivitas.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
+            <div class="card" onclick="showDetail(6)">
+                <h3>6. Penyusunan Laporan dan Dokumen RTK Mikro</h3>
+                <p>Menyusun laporan tahunan dan ekspor dokumen sesuai kebutuhan regulasi.</p>
+                <button class="button">Lihat Detail</button>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>2. Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</h3>
-            <p>Menganalisis beban kerja untuk menentukan kebutuhan tenaga kerja.</p>
-            <a href="components/workforce-planning.html" class="button">Lihat Detail</a>
-        </div>
-
-        <div class="card">
-            <h3>3. Analisis Persediaan Pegawai dan Neraca Pegawai</h3>
-            <p>Menganalisis ketersediaan pegawai dan mengevaluasi neraca kebutuhan tenaga kerja.</p>
-            <a href="components/employee-inventory.html" class="button">Lihat Detail</a>
-        </div>
-
-        <div class="card">
-            <h3>4. Penyusunan Program Kepegawaian</h3>
-            <p>Menyusun program pelatihan dan pengembangan karier pegawai.</p>
-            <a href="components/hr-program.html" class="button">Lihat Detail</a>
-        </div>
-
-        <div class="card">
-            <h3>5. Pengendalian dan Evaluasi Kinerja Pegawai</h3>
-            <p>Melakukan evaluasi kinerja pegawai untuk menilai produktivitas.</p>
-            <a href="components/performance-evaluation.html" class="button">Lihat Detail</a>
-        </div>
-
-        <div class="card">
-            <h3>6. Penyusunan Laporan dan Dokumen RTK Mikro</h3>
-            <p>Menyusun laporan tahunan dan ekspor dokumen sesuai kebutuhan regulasi.</p>
-            <a href="components/reporting.html" class="button">Lihat Detail</a>
+        <!-- Tempat untuk Menampilkan Detail -->
+        <div class="detail-container" id="detailContainer">
+            <h2 id="detailTitle">Detail Komponen</h2>
+            <p id="detailContent">Klik pada kartu untuk melihat detail lebih lanjut.</p>
         </div>
     </div>
 
