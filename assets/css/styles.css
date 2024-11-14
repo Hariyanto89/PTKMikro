@@ -98,25 +98,27 @@ main p {
 
 /* Styling Kartu (Card-Based Design) */
 
+/* Kontainer Utama untuk Kartu dan Detail */
 .content-container {
     display: flex;
     gap: 20px;
-    max-width: 1200px;
+    max-width: 100%;
     width: 100%;
+    align-items: flex-start;
+}
+
+/* Kontainer Kartu */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%; /* Kurangi lebar agar detail lebih luas */
 }
 
 /* Kartu */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    width: 60%; /* Menyisakan ruang untuk detail di sebelah kanan */
-    transition: width 0.3s ease;
-}
-
 .card {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -154,7 +156,7 @@ main p {
 
 /* Detail Kartu */
 .detail-container {
-    width: 40%;
+    width: 70%; /* Lebih luas untuk tampilan detail */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
