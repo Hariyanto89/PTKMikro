@@ -62,6 +62,7 @@ header p {
 .card h3 {
     color: #005b99;
     font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .card p {
@@ -78,6 +79,8 @@ header p {
     border-radius: 5px;
     font-weight: bold;
     display: block;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .button:hover {
@@ -95,9 +98,8 @@ header p {
     transition: opacity 0.3s ease;
 }
 
-/* Warna hijau muda untuk detail */
 .detail-container.show-below {
-    background-color: #e6ffe6;
+    background-color: #e6ffe6; /* Hijau muda */
 }
 
 /* Tampilan Tabel */
@@ -116,6 +118,19 @@ th, td {
 th {
     background-color: #007acc;
     color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f7fb;
+}
+
+tr:hover td {
+    background-color: #e6f7ff;
 }
 
 /* Responsive Styling */
@@ -154,4 +169,25 @@ th {
 
 #reportForm button:hover {
     background-color: #005b99;
+}
+
+/* Notifikasi */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007acc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
 }
