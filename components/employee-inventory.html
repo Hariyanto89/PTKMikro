@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Persediaan Pegawai dan Neraca Pegawai</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/employee-inventory.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analisis Persediaan Pegawai dan Neraca Pegawai</h1>
+
+        <!-- Form Input Data Persediaan Pegawai -->
+        <form id="inventoryForm">
+            <label for="currentEmployees">Jumlah Pegawai Saat Ini:</label>
+            <input type="number" id="currentEmployees" placeholder="Masukkan jumlah pegawai saat ini" required>
+
+            <label for="requiredEmployees">Jumlah Pegawai yang Dibutuhkan:</label>
+            <input type="number" id="requiredEmployees" placeholder="Masukkan jumlah pegawai yang dibutuhkan" required>
+
+            <button type="button" onclick="calculateGap()">Hitung Neraca Pegawai</button>
+        </form>
+
+        <!-- Hasil Analisis Neraca Pegawai -->
+        <h2>Hasil Analisis Neraca Pegawai</h2>
+        <div id="inventoryResult">
+            <p>Jumlah Pegawai Saat Ini: <span id="displayCurrentEmployees">-</span> orang</p>
+            <p>Jumlah Pegawai yang Dibutuhkan: <span id="displayRequiredEmployees">-</span> orang</p>
+            <p><strong>Kesenjangan Pegawai: <span id="employeeGap">-</span> orang</strong></p>
+            <p id="gapAnalysisMessage"></p>
+        </div>
+    </div>
+
+    <script src="../assets/js/employee-inventory.js"></script>
+</body>
+</html>
 
