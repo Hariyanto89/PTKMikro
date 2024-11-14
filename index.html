@@ -10,39 +10,41 @@
     <div class="container">
         <h1>Perencanaan Tenaga Kerja Retail</h1>
         <h2>Retail dan Layanan Pelanggan</h2>
-        <h3>Toko......</h3>
+        
+        <!-- Form Penambahan Pegawai -->
         <form id="workerForm">
-            <label for="name">Nama Pekerja:</label>
-            <input type="text" id="name" placeholder="Masukkan nama pekerja" required>
+            <label for="name">Nama Pegawai:</label>
+            <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
 
             <label for="position">Posisi:</label>
             <select id="position" required>
-                <option value="">Pilih posisi</option>
+                <option value="">Pilih Posisi</option>
                 <option value="Kasir">Kasir</option>
                 <option value="Pramuniaga">Pramuniaga</option>
                 <option value="Staf Gudang">Staf Gudang</option>
             </select>
 
-            <label for="hours">Jam Kerja (per minggu):</label>
+            <label for="hours">Jam Kerja per Minggu:</label>
             <input type="number" id="hours" placeholder="Masukkan jam kerja" required>
 
-            <label for="plannedOutput">Output yang Direncanakan:</label>
-            <input type="number" id="plannedOutput" placeholder="Masukkan output yang direncanakan" required>
+            <label for="plannedOutput">Target Output:</label>
+            <input type="number" id="plannedOutput" placeholder="Masukkan target output" required>
 
             <label for="actualOutput">Output Nyata:</label>
             <input type="number" id="actualOutput" placeholder="Masukkan output nyata" required>
 
-            <button type="button" onclick="addWorker()">Tambah Pekerja</button>
+            <button type="button" onclick="addWorker()">Tambah Pegawai</button>
         </form>
 
-        <h2>Data Tenaga Kerja</h2>
+        <!-- Tabel Data Pegawai -->
+        <h3>Data Pegawai</h3>
         <table id="workerTable">
             <thead>
                 <tr>
                     <th>Nama</th>
                     <th>Posisi</th>
                     <th>Jam Kerja</th>
-                    <th>Output yang Direncanakan</th>
+                    <th>Target Output</th>
                     <th>Output Nyata</th>
                     <th>Produktivitas (%)</th>
                 </tr>
@@ -51,7 +53,9 @@
         </table>
 
         <button class="generate-btn" onclick="generateReport()">Buat Laporan</button>
-        <h2>Laporan Efisiensi</h2>
+
+        <!-- Laporan Efisiensi -->
+        <h3>Laporan Efisiensi</h3>
         <p id="report"></p>
     </div>
     <script src="assets/js/script.js"></script>
