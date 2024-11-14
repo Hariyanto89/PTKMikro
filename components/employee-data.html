@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumpulan dan Pengolahan Data Pegawai</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/employee-data.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pengumpulan dan Pengolahan Data Pegawai</h1>
+
+        <!-- Formulir Input Data Pegawai -->
+        <form id="employeeForm">
+            <label for="name">Nama Pegawai:</label>
+            <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
+
+            <label for="position">Jabatan:</label>
+            <input type="text" id="position" placeholder="Masukkan jabatan pegawai" required>
+
+            <label for="age">Usia:</label>
+            <input type="number" id="age" placeholder="Masukkan usia pegawai" required>
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+
+            <label for="education">Pendidikan:</label>
+            <input type="text" id="education" placeholder="Masukkan tingkat pendidikan" required>
+
+            <label for="experience">Pengalaman (tahun):</label>
+            <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
+
+            <label for="training">Pelatihan Terbaru:</label>
+            <input type="text" id="training" placeholder="Masukkan pelatihan terakhir" required>
+
+            <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
+        </form>
+
+        <!-- Tabel Data Pegawai -->
+        <h2>Dashboard Data Pegawai</h2>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Jabatan</th>
+                    <th>Usia</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Pendidikan</th>
+                    <th>Pengalaman (tahun)</th>
+                    <th>Pelatihan Terbaru</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="../assets/js/employee-data.js"></script>
+</body>
+</html>
 
