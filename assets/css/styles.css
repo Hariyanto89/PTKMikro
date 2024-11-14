@@ -73,3 +73,25 @@ main p {
     max-width: 800px;
     margin: auto;
 }
+
+/* Styling Notifikasi */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
