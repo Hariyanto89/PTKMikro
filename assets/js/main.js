@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const detailTitle = document.getElementById('detailTitle');
         const detailContent = document.getElementById('detailContent');
         const detailContainer = document.querySelector('.detail-container');
-
+        
         // Cek apakah sedang dalam tampilan mobile
         const isMobile = window.innerWidth < 768;
 
@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailContent.innerHTML = "<p>Klik pada kartu untuk melihat detail lebih lanjut.</p>";
                 break;
         }
+
         // Jika dalam mode mobile, pindahkan detail container tepat di bawah kartu yang diklik
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
@@ -122,13 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             detailContainer.classList.add('show-below');
         } else {
-            // Dalam mode desktop, kembalikan detail container ke tempat semula
             mainContent.appendChild(detailContainer);
             detailContainer.classList.remove('show-below');
         }
     };
 
-    // Placeholder function implementations for each component
+    // Placeholder function implementations
     window.addEmployee = function() { alert("Pegawai ditambahkan."); };
     window.calculateStaffNeeds = function() { alert("Kebutuhan pegawai dihitung."); };
     window.analyzeInventory = function() { alert("Analisis persediaan pegawai selesai."); };
