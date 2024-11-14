@@ -3,61 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perencanaan Tenaga Kerja Retail</title>
+    <title>Perencanaan Tenaga Kerja Mikro</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Perencanaan Tenaga Kerja Retail</h1>
-        <h2>Retail dan Layanan Pelanggan</h2>
-        
-        <!-- Form Penambahan Pegawai -->
-        <form id="workerForm">
-            <label for="name">Nama Pegawai:</label>
-            <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
+    <header>
+        <h1>Perencanaan Tenaga Kerja Mikro (PTK Mikro)</h1>
+        <p>Berbasis Keputusan Menteri Tenaga Kerja dan Transmigrasi No. 52 Tahun 2014</p>
+    </header>
 
-            <label for="position">Posisi:</label>
-            <select id="position" required>
-                <option value="">Pilih Posisi</option>
-                <option value="Kasir">Kasir</option>
-                <option value="Pramuniaga">Pramuniaga</option>
-                <option value="Staf Gudang">Staf Gudang</option>
-            </select>
+    <!-- Navigasi ke Semua Komponen -->
+    <nav>
+        <ul>
+            <li><a href="components/employee-data.html">1. Pengumpulan dan Pengolahan Data Pegawai</a></li>
+            <li><a href="components/workforce-planning.html">2. Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</a></li>
+            <li><a href="components/employee-inventory.html">3. Analisis Persediaan Pegawai dan Neraca Pegawai</a></li>
+            <li><a href="components/hr-program.html">4. Penyusunan Program Kepegawaian</a></li>
+            <li><a href="components/performance-evaluation.html">5. Pengendalian dan Evaluasi Kinerja Pegawai</a></li>
+            <li><a href="components/reporting.html">6. Penyusunan Laporan dan Dokumen RTK Mikro</a></li>
+        </ul>
+    </nav>
 
-            <label for="hours">Jam Kerja per Minggu:</label>
-            <input type="number" id="hours" placeholder="Masukkan jam kerja" required>
+    <!-- Seksi Utama untuk Menampilkan Konten -->
+    <main>
+        <section>
+            <h2>Selamat Datang di Aplikasi PTK Mikro</h2>
+            <p>Aplikasi ini membantu perusahaan dalam merencanakan, mengelola, dan mengevaluasi kebutuhan tenaga kerja sesuai pedoman yang berlaku. Pilih salah satu komponen di atas untuk memulai.</p>
+        </section>
+    </main>
 
-            <label for="plannedOutput">Target Output:</label>
-            <input type="number" id="plannedOutput" placeholder="Masukkan target output" required>
-
-            <label for="actualOutput">Output Nyata:</label>
-            <input type="number" id="actualOutput" placeholder="Masukkan output nyata" required>
-
-            <button type="button" onclick="addWorker()">Tambah Pegawai</button>
-        </form>
-
-        <!-- Tabel Data Pegawai -->
-        <h3>Data Pegawai</h3>
-        <table id="workerTable">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Posisi</th>
-                    <th>Jam Kerja</th>
-                    <th>Target Output</th>
-                    <th>Output Nyata</th>
-                    <th>Produktivitas (%)</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-
-        <button class="generate-btn" onclick="generateReport()">Buat Laporan</button>
-
-        <!-- Laporan Efisiensi -->
-        <h3>Laporan Efisiensi</h3>
-        <p id="report"></p>
-    </div>
-    <script src="assets/js/script.js"></script>
+    <!-- JavaScript Global -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
