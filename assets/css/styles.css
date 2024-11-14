@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradasi biru muda */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ body {
 
 /* Heading Styling */
 h1, h2 {
-    color: #01579b;
+    color: #01579b; /* Biru tua */
     margin-bottom: 15px;
 }
 
@@ -39,7 +39,7 @@ form label {
     margin-top: 10px;
     font-weight: bold;
     text-align: left;
-    color: #0277bd;
+    color: #0277bd; /* Biru sedang */
 }
 
 /* Form Input Styling */
@@ -47,7 +47,7 @@ form input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 2px solid #29b6f6;
+    border: 2px solid #29b6f6; /* Biru muda */
     border-radius: 5px;
     font-size: 16px;
     outline: none;
@@ -56,7 +56,7 @@ form input {
 
 /* Input Focus Styling */
 form input:focus {
-    border-color: #4fc3f7;
+    border-color: #4fc3f7; /* Biru lebih muda */
 }
 
 /* Button Styling */
@@ -65,7 +65,7 @@ button {
     width: 100%;
     border: none;
     border-radius: 8px;
-    background-color: #0288d1;
+    background-color: #0288d1; /* Biru sedang */
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -76,7 +76,7 @@ button {
 
 /* Button Hover Effect */
 button:hover {
-    background-color: #03a9f4;
+    background-color: #03a9f4; /* Biru terang */
     transform: translateY(-2px);
 }
 
@@ -97,8 +97,8 @@ table, th, td {
 th {
     padding: 12px;
     text-align: center;
-    background-color: #81d4fa;
-    color: #01579b;
+    background-color: #81d4fa; /* Biru muda */
+    color: #01579b; /* Biru tua */
 }
 
 /* Table Data Styling */
@@ -109,21 +109,21 @@ td {
 
 /* Table Row Styling */
 tbody tr:nth-child(odd) {
-    background-color: #e1f5fe;
+    background-color: #e1f5fe; /* Biru sangat muda */
 }
 
 tbody tr:nth-child(even) {
-    background-color: #b3e5fc;
+    background-color: #b3e5fc; /* Biru sangat muda */
 }
 
 /* Report Styling */
 #report {
     margin-top: 20px;
     padding: 12px;
-    background-color: #e0f7fa;
-    border: 1px solid #81d4fa;
+    background-color: #e0f7fa; /* Biru sangat muda */
+    border: 1px solid #81d4fa; /* Biru muda */
     border-radius: 8px;
-    color: #0277bd;
+    color: #0277bd; /* Biru sedang */
 }
 
 /* Responsive Design */
