@@ -1,70 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const workerForm = document.getElementById('workerForm');
-    const workerTableBody = document.querySelector('#workerTable tbody');
-    const reportParagraph = document.getElementById('report');
+let workers = [];
 
-    // Fungsi untuk menambahkan pekerja ke tabel
-    function addWorker() {
-        const name = document.getElementById('name').value.trim();
-        const position = document.getElementById('position').value;
-        const hours = parseFloat(document.getElementById('hours').value);
-        const plannedOutput = parseFloat(document.getElementById('plannedOutput').value);
-        const actualOutput = parseFloat(document.getElementById('actualOutput').value);
+function addWorker() {
+    const name = document.getElementById('name').value;
+    const position = document.getElementById('position').value;
+    const hours = parseFloat(document.getElementById('hours').value);
+    const plannedOutput = parseFloat(document.getElementById('plannedOutput').value);
+    const actualOutput = parseFloat(document.getElementById('actualOutput').value);
 
-        if (!name || !position || isNaN(hours) || isNaN(plannedOutput) || isNaN(actualOutput)) {
-            alert('Mohon isi semua data dengan benar.');
-            return;
-        }
+    if (!name || !position || isNaN(hours) || isNaN(plannedOutput) || isNaN(actualOutput)) {
+        alert("Mohon isi semua data dengan benar.");
+        return;
+    }
 
-        const productivity = ((actualOutput / plannedOutput) * 100).toFixed(2);
+    const productivity = ((actualOutput / plannedOutput) * 100).toFixed(2);
 
-        const row = document.createElement('tr');
+    workers.push({ name, position, hours, plannedOutput, actualOutput, productivity });
+
+    displayWorkers();
+    clearForm();
+}
+
+function displayWorkers() {
+    const tableBody = document.querySelector("#workerTable tbody");
+    tableBody.innerHTML = "";
+
+    workers.forEach((worker, index) => {
+        const row = tableBody.insertRow(index);
         row.innerHTML = `
-            <td>${name}</td>
-            <td>${position}</td>
-            <td>${hours}</td>
-            <td>${plannedOutput}</td>
-            <td>${actualOutput}</td>
-            <td>${productivity}%</td>
+            <td>${worker.name}</td>
+            <td>${worker.position}</td>
+            <td>${worker.hours}</td>
+            <td>${worker.plannedOutput}</td>
+            <td>${worker.actualOutput}</td>
+            <td>${worker.productivity}%</td>
         `;
-        workerTableBody.appendChild(row);
+    });
+}
 
-        // Reset form setelah menambahkan pekerja
-        workerForm.reset();
-    }
+function clearForm() {
+    document.getElementById("workerForm").reset();
+}
 
-    // Fungsi untuk menghasilkan laporan efisiensi
-    function generateReport() {
-        const rows = workerTableBody.querySelectorAll('tr');
-        if (rows.length === 0) {
-            reportParagraph.textContent = 'Tidak ada data tenaga kerja untuk dilaporkan.';
-            return;
-        }
+function generateReport() {
+    let totalHours = 0;
+    let totalPlannedOutput = 0;
+    let totalActualOutput = 0;
 
-        let totalHours = 0;
-        let totalPlannedOutput = 0;
-        let totalActualOutput = 0;
+    workers.forEach(worker => {
+        totalHours += worker.hours;
+        totalPlannedOutput += worker.plannedOutput;
+        totalActualOutput += worker.actualOutput;
+    });
 
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            totalHours += parseFloat(cells[2].textContent);
-            totalPlannedOutput += parseFloat(cells[3].textContent);
-            totalActualOutput += parseFloat(cells[4].textContent);
-        });
-
-        const overallProductivity = ((totalActualOutput / totalPlannedOutput) * 100).toFixed(2);
-
-        reportParagraph.innerHTML = `
-            Total Jam Kerja: ${totalHours} jam<br>
-            Total Output yang Direncanakan: ${totalPlannedOutput}<br>
-            Total Output Nyata: ${totalActualOutput}<br>
-            Produktivitas Keseluruhan: ${overallProductivity}%
-        `;
-    }
-
-    // Event listener untuk tombol "Tambah Pekerja"
-    document.querySelector('button[onclick="addWorker()"]').addEventListener('click', addWorker);
-
-    // Event listener untuk tombol "Buat Laporan"
-    document.querySelector('button[onclick="generateReport()"]').addEventListener('click', generateReport);
-});
+    const overallProductivity = ((totalActualOutput / totalPlannedOutput) * 100).toFixed(2);
+    document.getElementById("report").innerHTML = `
+        Total Jam Kerja: ${totalHours} jam<br>
+        Total Target Output: ${totalPlannedOutput}<br>
+        Total Output Nyata: ${totalActualOutput}<br>
+        Produktivitas Keseluruhan: ${overallProductivity}%
+    `;
+}
