@@ -1,12 +1,14 @@
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
+/* Body Styling */
 body {
-    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +17,7 @@ body {
     text-align: center;
 }
 
+/* Container Styling */
 .container {
     width: 90%;
     max-width: 600px;
@@ -24,38 +27,45 @@ body {
     border-radius: 12px;
 }
 
+/* Heading Styling */
 h1, h2 {
-    color: #333;
+    color: #01579b;
     margin-bottom: 15px;
 }
 
+/* Form Label Styling */
 form label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    text-align: left;
+    color: #0277bd;
 }
 
+/* Form Input Styling */
 form input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 2px solid #56ab2f;
+    border: 2px solid #29b6f6;
     border-radius: 5px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
 }
 
+/* Input Focus Styling */
 form input:focus {
-    border-color: #a8e063;
+    border-color: #4fc3f7;
 }
 
+/* Button Styling */
 button {
     padding: 12px;
     width: 100%;
     border: none;
     border-radius: 8px;
-    background-color: #56ab2f;
+    background-color: #0288d1;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -64,11 +74,13 @@ button {
     margin-top: 15px;
 }
 
+/* Button Hover Effect */
 button:hover {
-    background-color: #a8e063;
+    background-color: #03a9f4;
     transform: translateY(-2px);
 }
 
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -76,41 +88,60 @@ table {
     font-size: 15px;
 }
 
+/* Table Header and Cells */
 table, th, td {
     border: 1px solid #ddd;
 }
 
-th, td {
+/* Table Header Styling */
+th {
+    padding: 12px;
+    text-align: center;
+    background-color: #81d4fa;
+    color: #01579b;
+}
+
+/* Table Data Styling */
+td {
     padding: 12px;
     text-align: center;
 }
 
-thead {
-    background-color: #a8e063;
-    color: white;
-}
-
+/* Table Row Styling */
 tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
+    background-color: #e1f5fe;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #e9e9e9;
+    background-color: #b3e5fc;
 }
 
+/* Report Styling */
 #report {
     margin-top: 20px;
     padding: 12px;
-    background-color: #e8f5e9;
-    border: 1px solid #c8e6c9;
+    background-color: #e0f7fa;
+    border: 1px solid #81d4fa;
     border-radius: 8px;
-    color: #388e3c;
+    color: #0277bd;
 }
 
-.generate-btn {
-    background-color: #56ab2f;
-}
-
-.generate-btn:hover {
-    background-color: #7cd371;
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1, h2 {
+        font-size: 1.5em;
+    }
+    
+    form label, form input, button {
+        font-size: 16px;
+    }
+    
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
