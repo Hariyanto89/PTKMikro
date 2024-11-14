@@ -127,3 +127,31 @@ th {
         margin-top: 10px;
     }
 }
+
+/* Styling Dropdown dan Tombol di Form */
+#reportForm select, 
+#reportForm button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#reportForm select {
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+#reportForm button {
+    background-color: #007acc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reportForm button:hover {
+    background-color: #005b99;
+}
