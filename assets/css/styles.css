@@ -1,165 +1,136 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
+/* Layout Utama untuk Detail Komponen */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f7f9;
-    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
 }
 
-/* Header */
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    color: #005b99;
-    font-size: 2rem;
-}
-
-header p {
-    color: #333;
-    font-size: 1rem;
-}
-
-/* Navigasi */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 10px 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #005b99;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-nav ul li a:hover {
-    color: #007acc;
-    text-decoration: underline;
-}
-
-/* Main Section */
-main {
-    text-align: center;
-    margin-top: 20px;
-}
-
-main h2 {
-    font-size: 1.8rem;
-    color: #005b99;
-}
-
-main p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 800px;
-    margin: auto;
-}
-
-/* Styling Notifikasi */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #007acc;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    opacity: 0;
-    animation: fadeInOut 3s ease forwards;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* Styling Kartu (Card-Based Design) */
-
-/* Kontainer Utama untuk Kartu dan Detail */
-.content-container {
-    display: flex;
-    gap: 20px;
-    max-width: 100%;
-    width: 100%;
-    align-items: flex-start;
-}
-
-/* Kontainer Kartu */
+/* Styling untuk Card Container */
 .card-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 30%; /* Kurangi lebar agar detail lebih luas */
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 30px;
 }
 
-/* Kartu */
-.card {
-    background-color: #ffffff;
-    padding: 15px;
+/* Styling untuk Detail Container */
+.detail-container {
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #e7f5e9; /* Hijau Muda */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling Khusus untuk Heading di Detail Container */
+.detail-container h1 {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card h3 {
-    color: #005b99;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #666;
+    color: #2d7a3e; /* Hijau Tua */
+    font-size: 1.8rem;
+    border-bottom: 2px solid #2d7a3e;
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.button {
-    text-decoration: none;
-    background-color: #005b99;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
+/* Styling Form di Detail Container */
+.detail-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.detail-container form label {
     font-weight: bold;
+    color: #2d7a3e; /* Hijau Tua */
+    font-size: 1rem;
+}
+
+.detail-container form input, 
+.detail-container form select {
+    padding: 10px;
+    border: 1px solid #a1d9af; /* Hijau Muda */
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.detail-container form input:focus,
+.detail-container form select:focus {
+    border-color: #2d7a3e; /* Hijau Tua */
+    outline: none;
+}
+
+/* Tombol untuk Detail */
+.detail-container button {
+    padding: 12px;
+    background-color: #2d7a3e; /* Hijau Tua */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    grid-column: span 2;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.detail-container button:hover {
+    background-color: #45a049; /* Hijau Lebih Terang */
+    transform: scale(1.05);
+}
+
+/* Tabel untuk Menampilkan Data Pegawai */
+.detail-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.detail-container th, 
+.detail-container td {
+    padding: 12px;
+    border: 1px solid #ddd;
     text-align: center;
-    transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: #007acc;
+.detail-container th {
+    background-color: #2d7a3e; /* Hijau Tua */
+    color: white;
+    font-weight: bold;
 }
 
-/* Detail Kartu */
-.detail-container {
-    width: 70%; /* Lebih luas untuk tampilan detail */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f0f8ff;
-    transition: opacity 0.3s ease;
+.detail-container td {
+    background-color: #f1f9f4; /* Hijau Muda */
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.detail-container tr:nth-child(even) td {
+    background-color: #e7f5e9; /* Hijau Muda Lebih Terang */
+}
+
+.detail-container td:hover {
+    background-color: #d0ebd9; /* Hijau Muda Hover */
+}
+
+/* Responsive untuk Layar Kecil */
+@media (max-width: 768px) {
+    .detail-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-container form input[type="text"],
+    .detail-container form input[type="number"],
+    .detail-container form select,
+    .detail-container button {
+        grid-column: span 1;
+    }
 }
