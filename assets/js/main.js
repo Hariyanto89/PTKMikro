@@ -1,81 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle AJAX-based navigation between pages
-    const links = document.querySelectorAll('nav ul li a');
     const mainContent = document.querySelector('main');
 
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            loadPage(link.getAttribute('href'));
-        });
-    });
-
-    async function loadPage(url) {
-        try {
-            const response = await fetch(url);
-            if (response.ok) {
-                const content = await response.text();
-                mainContent.innerHTML = content;
-                updateNavigationState(url);
-            } else {
-                mainContent.innerHTML = "<p>Page not found.</p>";
-            }
-        } catch (error) {
-            mainContent.innerHTML = "<p>Failed to load page. Please try again later.</p>";
-        }
-    }
-
-    function updateNavigationState(url) {
-        links.forEach(link => {
-            if (link.getAttribute('href') === url) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    }
-
-    // Theme toggle and saving preference in local storage
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            saveThemePreference();
-        });
-        applySavedTheme();
-    }
-
-    function saveThemePreference() {
-        const isDark = document.body.classList.contains('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-
-    function applySavedTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-        }
-    }
-
-    // Notification function
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.classList.add('notification');
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
-
-    showNotification("Welcome to the PTK Mikro application!");
-
-    // Function to display details and forms based on component selection
+    // Fungsi untuk menampilkan detail di bawah kartu pada layar kecil
     window.showDetail = function(componentNumber) {
         const detailTitle = document.getElementById('detailTitle');
         const detailContent = document.getElementById('detailContent');
+        const detailContainer = document.querySelector('.detail-container');
 
+        // Cek apakah sedang dalam tampilan mobile
+        const isMobile = window.innerWidth < 768;
+
+        // Update konten detail berdasarkan nomor komponen
         switch (componentNumber) {
             case 1:
                 detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
@@ -170,6 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailContent.innerHTML = "<p>Klik pada kartu untuk melihat detail lebih lanjut.</p>";
                 break;
         }
+
+        // Jika dalam mode mobile, pindahkan detail container tepat di bawah kartu yang diklik
+        if (isMobile) {
+            const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
+            if (clickedCard) {
+                clickedCard.insertAdjacentElement('afterend', detailContainer);
+            }
+            detailContainer.classList.add('show-below');
+        } else {
+            // Dalam mode desktop, kembalikan detail container ke tempat semula
+            mainContent.appendChild(detailContainer);
+            detailContainer.classList.remove('show-below');
+        }
     };
 
     // Placeholder function implementations for each component
@@ -179,4 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addProgram = function() { alert("Program kepegawaian ditambahkan."); };
     window.evaluatePerformance = function() { alert("Kinerja pegawai dievaluasi."); };
     window.generateReport = function() { alert("Laporan RTK Mikro dibuat."); };
+
+    // Event listener untuk resize, menyesuaikan posisi konten detail
+    window.addEventListener('resize', () => {
+        const activeComponent = document.querySelector('.card-container .card.active');
+        if (activeComponent) {
+            showDetail(parseInt(activeComponent.getAttribute('data-component')));
+        }
+    });
 });
