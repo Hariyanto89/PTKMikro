@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigasi Antar Halaman dengan AJAX (opsional untuk aplikasi satu halaman)
+    // Handle AJAX-based navigation between pages
     const links = document.querySelectorAll('nav ul li a');
     const mainContent = document.querySelector('main');
 
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainContent.innerHTML = content;
                 updateNavigationState(url);
             } else {
-                mainContent.innerHTML = "<p>Halaman tidak ditemukan.</p>";
+                mainContent.innerHTML = "<p>Page not found.</p>";
             }
         } catch (error) {
-            mainContent.innerHTML = "<p>Gagal memuat halaman. Silakan coba lagi nanti.</p>";
+            mainContent.innerHTML = "<p>Failed to load page. Please try again later.</p>";
         }
     }
 
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Theme toggle and saving preference in local storage
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Notification function
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.classList.add('notification');
@@ -67,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    showNotification("Selamat datang di aplikasi PTK Mikro!");
+    showNotification("Welcome to the PTK Mikro application!");
 
-    // Fungsi untuk Menampilkan Detail dan Form
+    // Function to display details and forms based on component selection
     window.showDetail = function(componentNumber) {
         const detailTitle = document.getElementById('detailTitle');
         const detailContent = document.getElementById('detailContent');
