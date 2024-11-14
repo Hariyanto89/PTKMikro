@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perencanaan Tenaga Kerja Mikro</title>
-    <!-- Link ke CSS -->
+    <title>Perencanaan Tenaga Kerja Retail</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Perencanaan Tenaga Kerja Mikro</h1>
+        <h1>Perencanaan Tenaga Kerja Retail</h1>
         <h2>Retail dan Layanan Pelanggan</h2>
         <h3>Toko......</h3>
         <form id="workerForm">
@@ -17,7 +16,12 @@
             <input type="text" id="name" placeholder="Masukkan nama pekerja" required>
 
             <label for="position">Posisi:</label>
-            <input type="text" id="position" placeholder="Masukkan posisi" required>
+            <select id="position" required>
+                <option value="">Pilih posisi</option>
+                <option value="Kasir">Kasir</option>
+                <option value="Pramuniaga">Pramuniaga</option>
+                <option value="Staf Gudang">Staf Gudang</option>
+            </select>
 
             <label for="hours">Jam Kerja (per minggu):</label>
             <input type="number" id="hours" placeholder="Masukkan jam kerja" required>
@@ -50,7 +54,6 @@
         <h2>Laporan Efisiensi</h2>
         <p id="report"></p>
     </div>
-    <!-- Link ke JavaScript -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
