@@ -1,89 +1,75 @@
-/* Reset CSS */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f8fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    line-height: 1.6;
+    background-color: #f4f7f9;
     color: #333;
-}
-
-.container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
-h1, h2, h3 {
-    color: #005b99;
-    margin-bottom: 15px;
-}
-
-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-label {
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #005b99;
+    font-size: 2rem;
+}
+
+header p {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Navigasi */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
     color: #005b99;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+nav ul li a:hover {
+    color: #007acc;
+    text-decoration: underline;
 }
 
-button {
-    padding: 10px;
-    width: 100%;
-    background-color: #005b99;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #007acc;
-}
-
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+/* Main Section */
+main {
     text-align: center;
-}
-
-th {
-    background-color: #007acc;
-    color: white;
-}
-
-#report {
     margin-top: 20px;
-    background-color: #e1f5fe;
-    padding: 10px;
-    border-radius: 5px;
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #005b99;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: auto;
 }
