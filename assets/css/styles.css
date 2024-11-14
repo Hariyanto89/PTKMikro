@@ -1,147 +1,85 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradasi biru muda */
+    background-color: #e6f7ff;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1, h2 {
+    color: #005b99;
     text-align: center;
 }
 
-/* Container Styling */
-.container {
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* Heading Styling */
-h1, h2 {
-    color: #01579b; /* Biru tua */
-    margin-bottom: 15px;
-}
-
-/* Form Label Styling */
-form label {
-    display: block;
+label {
+    flex: 1 1 100%;
     margin-top: 10px;
-    font-weight: bold;
-    text-align: left;
-    color: #0277bd; /* Biru sedang */
+    color: #003366;
 }
 
-/* Form Input Styling */
-form input {
-    width: 100%;
-    padding: 10px;
+input, select {
+    flex: 1 1 100%;
+    padding: 8px;
     margin-top: 5px;
-    border: 2px solid #29b6f6; /* Biru muda */
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
 }
 
-/* Input Focus Styling */
-form input:focus {
-    border-color: #4fc3f7; /* Biru lebih muda */
-}
-
-/* Button Styling */
 button {
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    background-color: #0288d1; /* Biru sedang */
+    background-color: #007acc;
     color: white;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 15px;
+    width: 100%;
 }
 
-/* Button Hover Effect */
 button:hover {
-    background-color: #03a9f4; /* Biru terang */
-    transform: translateY(-2px);
+    background-color: #005b99;
 }
 
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 15px;
 }
 
-/* Table Header and Cells */
-table, th, td {
-    border: 1px solid #ddd;
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
 }
 
-/* Table Header Styling */
 th {
-    padding: 12px;
-    text-align: center;
-    background-color: #81d4fa; /* Biru muda */
-    color: #01579b; /* Biru tua */
+    background-color: #cce6ff;
 }
 
-/* Table Data Styling */
-td {
-    padding: 12px;
-    text-align: center;
-}
-
-/* Table Row Styling */
-tbody tr:nth-child(odd) {
-    background-color: #e1f5fe; /* Biru sangat muda */
-}
-
-tbody tr:nth-child(even) {
-    background-color: #b3e5fc; /* Biru sangat muda */
-}
-
-/* Report Styling */
-#report {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #e0f7fa; /* Biru sangat muda */
-    border: 1px solid #81d4fa; /* Biru muda */
-    border-radius: 8px;
-    color: #0277bd; /* Biru sedang */
-}
-
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-    .container {
-        padding: 15px;
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
     }
-    
-    h1, h2 {
-        font-size: 1.5em;
-    }
-    
-    form label, form input, button {
-        font-size: 16px;
-    }
-    
-    th, td {
-        font-size: 14px;
-        padding: 8px;
+
+    input, select, button {
+        width: 100%;
     }
 }
