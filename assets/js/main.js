@@ -79,3 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotification("Selamat datang di aplikasi PTK Mikro!");
 });
 
+function showDetail(componentNumber) {
+    const detailTitle = document.getElementById('detailTitle');
+    const detailContent = document.getElementById('detailContent');
+
+    switch(componentNumber) {
+        case 1:
+            detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
+            detailContent.textContent = "Detail mengenai pengumpulan dan pengolahan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi pegawai.";
+            break;
+        case 2:
+            detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
+            detailContent.textContent = "Detail tentang perencanaan kebutuhan pegawai berdasarkan analisis beban kerja.";
+            break;
+        case 3:
+            detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
+            detailContent.textContent = "Informasi tentang analisis persediaan pegawai dan keseimbangan tenaga kerja dalam organisasi.";
+            break;
+        case 4:
+            detailTitle.textContent = "Penyusunan Program Kepegawaian";
+            detailContent.textContent = "Deskripsi tentang penyusunan program pelatihan dan pengembangan karier untuk pegawai.";
+            break;
+        case 5:
+            detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
+            detailContent.textContent = "Detail mengenai evaluasi kinerja pegawai dan penilaian produktivitas.";
+            break;
+        case 6:
+            detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
+            detailContent.textContent = "Informasi tentang penyusunan laporan tahunan dan dokumen RTK Mikro.";
+            break;
+        default:
+            detailTitle.textContent = "Detail Komponen";
+            detailContent.textContent = "Klik pada kartu untuk melihat detail lebih lanjut.";
+            break;
+    }
+}
