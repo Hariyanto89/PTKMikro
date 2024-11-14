@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengendalian dan Evaluasi Kinerja Pegawai</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/performance-evaluation.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pengendalian dan Evaluasi Kinerja Pegawai</h1>
+
+        <!-- Form Input Evaluasi Kinerja Pegawai -->
+        <form id="performanceForm">
+            <label for="employeeName">Nama Pegawai:</label>
+            <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
+
+            <label for="position">Jabatan:</label>
+            <input type="text" id="position" placeholder="Masukkan jabatan pegawai" required>
+
+            <label for="targetOutput">Target Output:</label>
+            <input type="number" id="targetOutput" placeholder="Masukkan target output" required>
+
+            <label for="actualOutput">Output Nyata:</label>
+            <input type="number" id="actualOutput" placeholder="Masukkan output nyata" required>
+
+            <button type="button" onclick="addPerformance()">Tambah Evaluasi Kinerja</button>
+        </form>
+
+        <!-- Tabel Evaluasi Kinerja Pegawai -->
+        <h2>Daftar Evaluasi Kinerja Pegawai</h2>
+        <table id="performanceTable">
+            <thead>
+                <tr>
+                    <th>Nama Pegawai</th>
+                    <th>Jabatan</th>
+                    <th>Target Output</th>
+                    <th>Output Nyata</th>
+                    <th>Produktivitas (%)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="../assets/js/performance-evaluation.js"></script>
+</body>
+</html>
 
