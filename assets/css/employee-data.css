@@ -2,10 +2,11 @@
 
 .detail-container .container {
     max-width: 100%;
-    background: #ffffff;
+    background: #eaf5ea; /* Background hijau muda */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 /* Heading Styling */
@@ -22,7 +23,10 @@
 .detail-container form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
+    padding: 10px; /* Tambahan padding */
+    background-color: #ffffff; /* Latar belakang putih */
+    border-radius: 8px;
 }
 
 .detail-container form label {
