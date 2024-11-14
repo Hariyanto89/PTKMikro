@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyusunan Program Kepegawaian</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/hr-program.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Penyusunan Program Kepegawaian</h1>
+
+        <!-- Formulir Program Pelatihan -->
+        <form id="trainingForm">
+            <label for="trainingName">Nama Program Pelatihan:</label>
+            <input type="text" id="trainingName" placeholder="Masukkan nama pelatihan" required>
+
+            <label for="trainingDate">Tanggal Pelatihan:</label>
+            <input type="date" id="trainingDate" required>
+
+            <label for="targetPosition">Jabatan Target:</label>
+            <input type="text" id="targetPosition" placeholder="Masukkan jabatan target" required>
+
+            <button type="button" onclick="addTraining()">Tambah Program Pelatihan</button>
+        </form>
+
+        <!-- Tabel Program Pelatihan -->
+        <h2>Daftar Program Pelatihan</h2>
+        <table id="trainingTable">
+            <thead>
+                <tr>
+                    <th>Nama Program</th>
+                    <th>Tanggal</th>
+                    <th>Jabatan Target</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Formulir Rencana Pengembangan Karier -->
+        <form id="careerPlanForm">
+            <h2>Rencana Pengembangan Karier</h2>
+            <label for="employeeName">Nama Pegawai:</label>
+            <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
+
+            <label for="currentPosition">Jabatan Saat Ini:</label>
+            <input type="text" id="currentPosition" placeholder="Masukkan jabatan saat ini" required>
+
+            <label for="desiredPosition">Jabatan yang Diinginkan:</label>
+            <input type="text" id="desiredPosition" placeholder="Masukkan jabatan yang diinginkan" required>
+
+            <button type="button" onclick="addCareerPlan()">Tambah Rencana Karier</button>
+        </form>
+
+        <!-- Tabel Rencana Pengembangan Karier -->
+        <h2>Daftar Rencana Pengembangan Karier</h2>
+        <table id="careerPlanTable">
+            <thead>
+                <tr>
+                    <th>Nama Pegawai</th>
+                    <th>Jabatan Saat Ini</th>
+                    <th>Jabatan yang Diinginkan</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="../assets/js/hr-program.js"></script>
+</body>
+</html>
 
