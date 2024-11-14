@@ -95,7 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Penyusunan laporan tahunan dan dokumen RTK Mikro.</p>
                     <form id="reportForm">
                         <label for="year">Tahun Laporan:</label>
-                        <input type="number" id="year" placeholder="Masukkan tahun laporan" required>
+                        <select id="year" required>
+                            <option value="">Pilih tahun</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                        </select>
                         <button type="button" onclick="generateReport()">Buat Laporan</button>
                     </form>
                 `;
@@ -105,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailContent.innerHTML = "<p>Klik pada kartu untuk melihat detail lebih lanjut.</p>";
                 break;
         }
-
         // Jika dalam mode mobile, pindahkan detail container tepat di bawah kartu yang diklik
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
