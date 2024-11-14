@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyusunan Laporan dan Dokumen RTK Mikro</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/reporting.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Penyusunan Laporan dan Dokumen RTK Mikro</h1>
+
+        <!-- Pilihan Tahun Laporan -->
+        <form id="reportForm">
+            <label for="reportYear">Pilih Tahun Laporan:</label>
+            <select id="reportYear" required>
+                <option value="">Pilih tahun</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+
+            <button type="button" onclick="generateReport()">Buat Laporan</button>
+            <button type="button" onclick="exportReportToPDF()">Ekspor ke PDF</button>
+            <button type="button" onclick="exportReportToExcel()">Ekspor ke Excel</button>
+        </form>
+
+        <!-- Tampilan Laporan Tahunan -->
+        <h2>Laporan Tahunan</h2>
+        <div id="reportContent">
+            <p>Tahun: <span id="displayYear">-</span></p>
+            <p>Jumlah Pegawai Saat Ini: <span id="currentEmployeeCount">-</span> orang</p>
+            <p>Total Program Pelatihan: <span id="totalTrainingPrograms">-</span></p>
+            <p>Rencana Karier Terdata: <span id="careerPlansCount">-</span></p>
+            <p>Evaluasi Kinerja: <span id="performanceEvaluationsCount">-</span> pegawai</p>
+            <p><strong>Produktivitas Rata-Rata: <span id="averageProductivity">-</span>%</strong></p>
+        </div>
+    </div>
+
+    <script src="../assets/js/reporting.js"></script>
+</body>
+</html>
 
