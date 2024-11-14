@@ -4,16 +4,15 @@ function addWorker() {
     const name = document.getElementById('name').value;
     const position = document.getElementById('position').value;
     const hours = parseInt(document.getElementById('hours').value);
-    const productivity = parseInt(document.getElementById('productivity').value);
     const plannedOutput = parseInt(document.getElementById('plannedOutput').value);
     const actualOutput = parseInt(document.getElementById('actualOutput').value);
 
-    if (name && position && hours && productivity && plannedOutput && actualOutput) {
+    if (name && position && hours && plannedOutput && actualOutput) {
         // Hitung produktivitas (%) berdasarkan Output Nyata dan Output yang Direncanakan
         const productivityPercentage = ((actualOutput / plannedOutput) * 100).toFixed(2);
 
         // Simpan data pekerja beserta produktivitas
-        workers.push({ name, position, hours, productivity, plannedOutput, actualOutput, productivityPercentage });
+        workers.push({ name, position, hours, plannedOutput, actualOutput, productivityPercentage });
         
         // Tampilkan data pekerja dalam tabel
         displayWorkers();
@@ -34,10 +33,9 @@ function displayWorkers() {
         row.insertCell(0).textContent = worker.name;
         row.insertCell(1).textContent = worker.position;
         row.insertCell(2).textContent = worker.hours;
-        row.insertCell(3).textContent = worker.productivity + '%';
-        row.insertCell(4).textContent = worker.plannedOutput;
-        row.insertCell(5).textContent = worker.actualOutput;
-        row.insertCell(6).textContent = worker.productivityPercentage + '%';
+        row.insertCell(3).textContent = worker.plannedOutput;
+        row.insertCell(4).textContent = worker.actualOutput;
+        row.insertCell(5).textContent = worker.productivityPercentage + '%';
     });
 }
 
@@ -45,7 +43,6 @@ function clearForm() {
     document.getElementById('name').value = '';
     document.getElementById('position').value = '';
     document.getElementById('hours').value = '';
-    document.getElementById('productivity').value = '';
     document.getElementById('plannedOutput').value = '';
     document.getElementById('actualOutput').value = '';
 }
