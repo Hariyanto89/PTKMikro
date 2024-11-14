@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perencanaan Tenaga Kerja Mikro (PTK Mikro)</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="assets/js/main.js"></script>
     <link rel="stylesheet" href="assets/css/employee-data.css">
     <link rel="stylesheet" href="assets/css/employee-inventory.css">
     <link rel="stylesheet" href="assets/css/hr-program.css">
@@ -18,49 +19,40 @@
         <p>Berbasis Keputusan Menteri Tenaga Kerja dan Transmigrasi No. 52 Tahun 2014</p>
     </header>
 
-    <!-- Container untuk Kartu-Kartu dan Detail -->
-    <div class="content-container">
-        <div class="card-container">
-            <div class="card" onclick="showDetail(1)">
-                <h3>1. Pengumpulan dan Pengolahan Data Pegawai</h3>
-                <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
-            <div class="card" onclick="showDetail(2)">
-                <h3>2. Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</h3>
-                <p>Menganalisis beban kerja untuk menentukan kebutuhan tenaga kerja.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
-            <div class="card" onclick="showDetail(3)">
-                <h3>3. Analisis Persediaan Pegawai dan Neraca Pegawai</h3>
-                <p>Menganalisis ketersediaan pegawai dan mengevaluasi neraca kebutuhan tenaga kerja.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
-            <div class="card" onclick="showDetail(4)">
-                <h3>4. Penyusunan Program Kepegawaian</h3>
-                <p>Menyusun program pelatihan dan pengembangan karier pegawai.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
-            <div class="card" onclick="showDetail(5)">
-                <h3>5. Pengendalian dan Evaluasi Kinerja Pegawai</h3>
-                <p>Melakukan evaluasi kinerja pegawai untuk menilai produktivitas.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
-            <div class="card" onclick="showDetail(6)">
-                <h3>6. Penyusunan Laporan dan Dokumen RTK Mikro</h3>
-                <p>Menyusun laporan tahunan dan ekspor dokumen sesuai kebutuhan regulasi.</p>
-                <button class="button">Lihat Detail</button>
-            </div>
+    <!-- Container for Cards -->
+    <div class="card-container">
+        <div class="card" onclick="showDetail(1)">
+            <h3>1. Pengumpulan dan Pengolahan Data Pegawai</h3>
+            <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi.</p>
         </div>
-
-<!-- Container untuk menampilkan detail di bawah kartu -->
-    <div class="detail-container" id="detailContainer">
-        <div class="container">
-            <h1 id="detailTitle">Detail Komponen</h1>
-            <p id="detailContent">Klik pada kartu untuk melihat detail lebih lanjut.</p>
+        <div class="card" onclick="showDetail(2)">
+            <h3>2. Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</h3>
+            <p>Menganalisis beban kerja untuk menentukan kebutuhan tenaga kerja.</p>
+        </div>
+        <div class="card" onclick="showDetail(3)">
+            <h3>3. Analisis Persediaan Pegawai dan Neraca Pegawai</h3>
+            <p>Menganalisis ketersediaan pegawai dan mengevaluasi neraca kebutuhan tenaga kerja.</p>
+        </div>
+        <div class="card" onclick="showDetail(4)">
+            <h3>4. Penyusunan Program Kepegawaian</h3>
+            <p>Menyusun program pelatihan dan pengembangan karier pegawai.</p>
+        </div>
+        <div class="card" onclick="showDetail(5)">
+            <h3>5. Pengendalian dan Evaluasi Kinerja Pegawai</h3>
+            <p>Melakukan evaluasi kinerja pegawai untuk menilai produktivitas.</p>
+        </div>
+        <div class="card" onclick="showDetail(6)">
+            <h3>6. Penyusunan Laporan dan Dokumen RTK Mikro</h3>
+            <p>Menyusun laporan tahunan dan ekspor dokumen sesuai kebutuhan regulasi.</p>
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <!-- Detail Section Below Cards -->
+    <div class="detail-container">
+        <h2 id="detailTitle">Detail Komponen</h2>
+        <div id="detailContent">
+            <p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>
+        </div>
+    </div>
 </body>
 </html>
