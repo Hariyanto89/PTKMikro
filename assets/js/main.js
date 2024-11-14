@@ -77,40 +77,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contoh Panggilan Fungsi Global
     showNotification("Selamat datang di aplikasi PTK Mikro!");
+
+    // Fungsi untuk Menampilkan Detail dan Form
+    window.showDetail = function(componentNumber) {
+        const detailTitle = document.getElementById('detailTitle');
+        const detailContent = document.getElementById('detailContent');
+
+        switch (componentNumber) {
+            case 1:
+                detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
+                detailContent.innerHTML = `
+                    <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi pegawai.</p>
+                    <form id="employeeForm">
+                        <label for="name">Nama Pegawai:</label>
+                        <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
+
+                        <label for="position">Jabatan:</label>
+                        <input type="text" id="position" placeholder="Masukkan jabatan pegawai" required>
+
+                        <label for="age">Usia:</label>
+                        <input type="number" id="age" placeholder="Masukkan usia pegawai" required>
+
+                        <label for="gender">Jenis Kelamin:</label>
+                        <select id="gender" required>
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+
+                        <label for="education">Pendidikan:</label>
+                        <input type="text" id="education" placeholder="Masukkan tingkat pendidikan" required>
+
+                        <label for="experience">Pengalaman (tahun):</label>
+                        <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
+
+                        <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
+                    </form>
+                `;
+                break;
+            case 2:
+                detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
+                detailContent.innerHTML = "<p>Detail tentang perencanaan kebutuhan pegawai berdasarkan analisis beban kerja.</p>";
+                break;
+            case 3:
+                detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
+                detailContent.innerHTML = "<p>Informasi tentang analisis persediaan pegawai dan keseimbangan tenaga kerja dalam organisasi.</p>";
+                break;
+            case 4:
+                detailTitle.textContent = "Penyusunan Program Kepegawaian";
+                detailContent.innerHTML = "<p>Deskripsi tentang penyusunan program pelatihan dan pengembangan karier untuk pegawai.</p>";
+                break;
+            case 5:
+                detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
+                detailContent.innerHTML = "<p>Detail mengenai evaluasi kinerja pegawai dan penilaian produktivitas.</p>";
+                break;
+            case 6:
+                detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
+                detailContent.innerHTML = "<p>Informasi tentang penyusunan laporan tahunan dan dokumen RTK Mikro.</p>";
+                break;
+            default:
+                detailTitle.textContent = "Detail Komponen";
+                detailContent.innerHTML = "<p>Klik pada kartu untuk melihat detail lebih lanjut.</p>";
+                break;
+        }
+    };
+
+    // Fungsi untuk Menambahkan Data Pegawai dari Formulir
+    window.addEmployee = function() {
+        const name = document.getElementById('name').value;
+        const position = document.getElementById('position').value;
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const education = document.getElementById('education').value;
+        const experience = document.getElementById('experience').value;
+
+        if (name && position && age && gender && education && experience) {
+            alert(`Pegawai ${name} telah ditambahkan!`);
+            document.getElementById('employeeForm').reset();  // Reset form setelah pengisian
+        } else {
+            alert("Mohon lengkapi semua data pegawai.");
+        }
+    };
 });
-
-function showDetail(componentNumber) {
-    const detailTitle = document.getElementById('detailTitle');
-    const detailContent = document.getElementById('detailContent');
-
-    switch(componentNumber) {
-        case 1:
-            detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
-            detailContent.textContent = "Detail mengenai pengumpulan dan pengolahan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi pegawai.";
-            break;
-        case 2:
-            detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
-            detailContent.textContent = "Detail tentang perencanaan kebutuhan pegawai berdasarkan analisis beban kerja.";
-            break;
-        case 3:
-            detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
-            detailContent.textContent = "Informasi tentang analisis persediaan pegawai dan keseimbangan tenaga kerja dalam organisasi.";
-            break;
-        case 4:
-            detailTitle.textContent = "Penyusunan Program Kepegawaian";
-            detailContent.textContent = "Deskripsi tentang penyusunan program pelatihan dan pengembangan karier untuk pegawai.";
-            break;
-        case 5:
-            detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
-            detailContent.textContent = "Detail mengenai evaluasi kinerja pegawai dan penilaian produktivitas.";
-            break;
-        case 6:
-            detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
-            detailContent.textContent = "Informasi tentang penyusunan laporan tahunan dan dokumen RTK Mikro.";
-            break;
-        default:
-            detailTitle.textContent = "Detail Komponen";
-            detailContent.textContent = "Klik pada kartu untuk melihat detail lebih lanjut.";
-            break;
-    }
-}
