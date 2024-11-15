@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
 
+                        <label for="training">Pelatihan Terbaru:</label>
+                        <input type="text" id="training" placeholder="Masukkan pelatihan terakhir" required>
+
                         <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
                     </form>
                 `;
