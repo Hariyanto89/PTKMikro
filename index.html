@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="assets/js/main.js"></script>
     <link rel="stylesheet" href="assets/css/employee-data.css">
-    <link rel="stylesheet" href="assets/css/employee-inventory.css">
-    <link rel="stylesheet" href="assets/css/hr-program.css">
-    <link rel="stylesheet" href="assets/css/performance-evaluation.css">
-    <link rel="stylesheet" href="assets/css/reporting.css">
-    <link rel="stylesheet" href="assets/css/workforce-planning.css">
 </head>
 <body>
     <header>
@@ -55,9 +50,31 @@
         </div>
     </div>
 
-    <!-- Script tambahan -->
+    <!-- Form Data Pelatihan -->
+    <div id="trainingContainer" class="training-container">
+        <h2>Data Pelatihan Pegawai</h2>
+        <div class="training-details">
+            <label for="trainingYear">Tahun:</label>
+            <input type="number" id="trainingYear" placeholder="Tahun pelatihan" min="2000" max="2030" required>
+
+            <label for="trainingInstitution">Lembaga Pelatihan:</label>
+            <input type="text" id="trainingInstitution" placeholder="Nama lembaga pelatihan" required>
+
+            <label for="trainingField">Bidang Keahlian:</label>
+            <input type="text" id="trainingField" placeholder="Bidang keahlian" required>
+
+            <label for="trainingCertificate">Unggah Sertifikat:</label>
+            <input type="file" id="trainingCertificate" accept=".jpg,.jpeg,.png,.pdf">
+
+            <label for="certificateLink">Link Sertifikat:</label>
+            <input type="url" id="certificateLink" placeholder="Link sertifikat (opsional)">
+        </div>
+        <button type="button" class="add-training" onclick="addTrainingField()">Tambah Pelatihan</button>
+    </div>
+
+    <!-- Script untuk penanganan dinamis -->
     <script>
-        // Fungsi toggle untuk menambahkan pelatihan
+        // Fungsi untuk menambahkan field pelatihan baru
         function addTrainingField() {
             const trainingContainer = document.getElementById('trainingContainer');
             const newField = document.createElement('div');
@@ -84,6 +101,7 @@
             trainingContainer.appendChild(newField);
         }
 
+        // Fungsi untuk menghapus field pelatihan
         function removeTrainingField(button) {
             const trainingField = button.parentElement;
             trainingField.remove();
