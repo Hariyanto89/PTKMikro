@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 1:
                 detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
                 detailContent.innerHTML = `
-                    <p>Mengumpulkan data pegawai, termasuk data pribadi, jabatan, dan kualifikasi pegawai.</p>
-                    <form id="employeeForm">
+                     <form id="employeeForm">
                         <label for="name">Nama Pegawai:</label>
                         <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
                         
@@ -58,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 2:
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
-                    <p>Perencanaan kebutuhan pegawai berdasarkan beban kerja.</p>
                     <form id="workloadForm">
                         <label for="workload">Beban Kerja:</label>
                         <input type="number" id="workload" placeholder="Masukkan beban kerja" required>
@@ -71,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 3:
                 detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
                 detailContent.innerHTML = `
-                    <p>Analisis persediaan pegawai dan keseimbangan tenaga kerja.</p>
                     <form id="inventoryForm">
                         <label for="currentStaff">Jumlah Pegawai Saat Ini:</label>
                         <input type="number" id="currentStaff" placeholder="Masukkan jumlah pegawai saat ini" required>
@@ -84,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 4:
                 detailTitle.textContent = "Penyusunan Program Kepegawaian";
                 detailContent.innerHTML = `
-                    <p>Menyusun program pelatihan dan pengembangan karier pegawai.</p>
                     <form id="programForm">
                         <label for="programName">Nama Program:</label>
                         <input type="text" id="programName" placeholder="Masukkan nama program" required>
@@ -97,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 5:
                 detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
                 detailContent.innerHTML = `
-                    <p>Evaluasi kinerja pegawai untuk menilai produktivitas.</p>
                     <form id="evaluationForm">
                         <label for="employeeName">Nama Pegawai:</label>
                         <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
@@ -110,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 6:
                 detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
                 detailContent.innerHTML = `
-                    <p>Penyusunan laporan tahunan dan dokumen RTK Mikro.</p>
                     <form id="reportForm">
                         <label for="year">Tahun Laporan:</label>
                         <select id="year" required>
