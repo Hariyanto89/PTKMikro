@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="Intern">Intern</option>
                         </select>
 
-                        <!-- Usia dengan Slider dan Number Input -->
                         <label for="age">Usia:</label>
                         <div class="age-input-container">
                             <input type="range" id="ageSlider" min="15" max="65" value="15" oninput="updateAgeValue(this.value)">
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="Perempuan">Perempuan</option>
                         </select>
 
-                        <!-- Pendidikan dengan pilihan jurusan -->
                         <label for="education">Pendidikan Terakhir:</label>
                         <select id="education" onchange="toggleMajorField()" required>
                             <option value="">Pilih pendidikan</option>
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="S3">S3</option>
                         </select>
 
-                        <!-- Field untuk jurusan, ditampilkan jika pendidikan adalah SMA atau lebih tinggi -->
                         <div id="majorField" style="display: none;">
                             <label for="major">Jurusan:</label>
                             <input type="text" id="major" placeholder="Masukkan jurusan pendidikan">
@@ -63,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
 
-                        <!-- Pelatihan yang pernah diikuti -->
                         <label>Pelatihan yang Pernah Diikuti:</label>
                         <div id="trainingContainer"></div>
                         <button type="button" class="add-training" onclick="addTrainingField()">Tambah Pelatihan</button>
@@ -73,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 break;
 
-            // Komponen lainnya (2 hingga 6)
             case 2:
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
@@ -100,16 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 break;
 
-            // Form untuk komponen lainnya sesuai pola
-            // ...
-
             default:
                 detailTitle.textContent = "Detail Komponen";
                 detailContent.innerHTML = "<p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>";
                 break;
         }
 
-        // Pindahkan detail ke bawah kartu pada tampilan kecil
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
             if (clickedCard) {
@@ -182,9 +173,17 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Pegawai berhasil ditambahkan.");
     };
 
-    // Placeholder untuk fungsi lainnya
-    window.calculateStaffNeeds = function () { alert("Kebutuhan pegawai dihitung."); };
-    window.analyzeInventory = function () { alert("Analisis persediaan selesai."); };
+    window.calculateStaffNeeds = function () {
+        alert("Kebutuhan pegawai dihitung.");
+    };
+
+    window.analyzeInventory = function () {
+        alert("Analisis persediaan selesai.");
+    };
+
+    window.generateReport = function () {
+        alert("Laporan RTK Mikro dibuat.");
+    };
 
     // Listener untuk menyesuaikan detail pada resize layar
     window.addEventListener('resize', () => {
