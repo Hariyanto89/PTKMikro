@@ -28,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="Intern">Intern</option>
                         </select>
 
+                        <!-- Usia dengan Slider dan Number Input -->
                         <label for="age">Usia:</label>
-                        <input type="number" id="age" placeholder="Masukkan usia pegawai" required>
-                        
+                        <div class="age-input-container">
+                            <input type="range" id="ageSlider" min="15" max="65" value="15" oninput="updateAgeValue(this.value)">
+                            <input type="number" id="ageNumber" min="15" max="65" value="15" oninput="updateAgeSlider(this.value)">
+                        </div>
+
                         <label for="gender">Jenis Kelamin:</label>
                         <select id="gender" required>
                             <option value="">Pilih jenis kelamin</option>
@@ -141,7 +145,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Implementasi fungsi placeholder untuk tombol
+    // Fungsi sinkronisasi slider dan input number untuk usia
+    window.updateAgeValue = function(value) {
+        document.getElementById('ageNumber').value = value;
+    };
+
+    window.updateAgeSlider = function(value) {
+        if (value >= 15 && value <= 65) {
+            document.getElementById('ageSlider').value = value;
+        }
+    };
+
+    // Placeholder function implementations
     window.addEmployee = function () { alert("Pegawai ditambahkan."); };
     window.calculateStaffNeeds = function () { alert("Kebutuhan pegawai dihitung."); };
     window.analyzeInventory = function () { alert("Analisis persediaan pegawai selesai."); };
