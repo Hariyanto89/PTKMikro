@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 1:
                 detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
                 detailContent.innerHTML = `
-                     <form id="employeeForm">
+                    <form id="employeeForm">
                         <label for="name">Nama Pegawai:</label>
                         <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
                         
@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
 
-                        <label for="training">Pelatihan Terbaru:</label>
-                        <input type="text" id="training" placeholder="Masukkan pelatihan terakhir" required>
+                        <!-- Pelatihan yang pernah diikuti -->
+                        <label>Pelatihan yang Pernah Diikuti:</label>
+                        <div id="trainingContainer"></div>
+                        <button type="button" onclick="addTrainingField()">Tambah Pelatihan</button>
 
                         <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
                     </form>
@@ -177,13 +179,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Fungsi untuk menambah entri pelatihan
+    window.addTrainingField = function () {
+        const trainingContainer = document.getElementById('trainingContainer');
+        const newField = document.createElement('div');
+        newField.classList.add('training-field');
+        newField.innerHTML = `
+            <div class="training-details">
+                <label for="trainingYear">Tahun:</label>
+                <input type="number" class="training-year" placeholder="Tahun pelatihan" min="2000" max="2030" required>
+
+                <label for="trainingInstitution">Lembaga Pelatihan:</label>
+                <input type="text" class="training-institution" placeholder="Nama lembaga pelatihan" required>
+
+                <label for="trainingField">Bidang Keahlian:</label>
+                <input type="text" class="training-field-input" placeholder="Bidang keahlian" required>
+
+                <label for="certificateUpload">Unggah Sertifikat:</label>
+                <input type="file" class="training-certificate" accept=".jpg,.jpeg,.png,.pdf">
+
+                <label for="certificateLink">Link Sertifikat:</label>
+                <input type="url" class="certificate-link" placeholder="Link sertifikat (opsional)">
+            </div>
+            <button type="button" class="remove-training" onclick="removeTrainingField(this)">Hapus</button>
+        `;
+        trainingContainer.appendChild(newField);
+    };
+
+    // Fungsi untuk menghapus entri pelatihan
+    window.removeTrainingField = function (button) {
+        const trainingField = button.parentElement;
+        trainingField.remove();
+    };
+
     // Placeholder function implementations
-    window.addEmployee = function () { alert("Pegawai ditambahkan."); };
-    window.calculateStaffNeeds = function () { alert("Kebutuhan pegawai dihitung."); };
-    window.analyzeInventory = function () { alert("Analisis persediaan pegawai selesai."); };
-    window.addProgram = function () { alert("Program kepegawaian ditambahkan."); };
-    window.evaluatePerformance = function () { alert("Kinerja pegawai dievaluasi."); };
-    window.generateReport = function () { alert("Laporan RTK Mikro dibuat."); };
+    window.addEmployee = function () {
+        alert("Pegawai berhasil ditambahkan.");
+    };
+    window.calculateStaffNeeds = function () {
+        alert("Kebutuhan pegawai dihitung.");
+    };
+    window.analyzeInventory = function () {
+        alert("Analisis persediaan pegawai selesai.");
+    };
+    window.addProgram = function () {
+        alert("Program kepegawaian ditambahkan.");
+    };
+    window.evaluatePerformance = function () {
+        alert("Kinerja pegawai dievaluasi.");
+    };
+    window.generateReport = function () {
+        alert("Laporan RTK Mikro dibuat.");
+    };
 
     // Event listener untuk menyesuaikan posisi konten detail ketika layar diubah
     window.addEventListener('resize', () => {
