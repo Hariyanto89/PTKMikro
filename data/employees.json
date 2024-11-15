@@ -1,1 +1,21 @@
+[
+  {
+    "name": "John Doe",
+    "position": "Manager",
+    "age": 30,
+    "gender": "Laki-laki",
+    "education": "S1",
+    "experience": 5,
+    "training": "Pelatihan Manajemen"
+  },
+  {
+    "name": "Jane Smith",
+    "position": "Supervisor",
+    "age": 28,
+    "gender": "Perempuan",
+    "education": "D3",
+    "experience": 3,
+    "training": "Pelatihan Supervisi"
+  }
+]
 
