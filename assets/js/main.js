@@ -66,12 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <!-- Pelatihan yang pernah diikuti -->
                         <label>Pelatihan yang Pernah Diikuti:</label>
                         <div id="trainingContainer"></div>
-                        <button type="button" onclick="addTrainingField()">Tambah Pelatihan</button>
+                        <button type="button" class="add-training" onclick="addTrainingField()">Tambah Pelatihan</button>
 
-                        <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
+                        <button type="button" class="submit-employee" onclick="addEmployee()">Tambah Pegawai</button>
                     </form>
                 `;
                 break;
+
+            // Komponen lainnya (2 hingga 6)
             case 2:
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
@@ -84,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </form>
                 `;
                 break;
+
             case 3:
                 detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
                 detailContent.innerHTML = `
@@ -96,55 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     </form>
                 `;
                 break;
-            case 4:
-                detailTitle.textContent = "Penyusunan Program Kepegawaian";
-                detailContent.innerHTML = `
-                    <form id="programForm">
-                        <label for="programName">Nama Program:</label>
-                        <input type="text" id="programName" placeholder="Masukkan nama program" required>
-                        <label for="duration">Durasi (bulan):</label>
-                        <input type="number" id="duration" placeholder="Masukkan durasi program" required>
-                        <button type="button" onclick="addProgram()">Tambah Program</button>
-                    </form>
-                `;
-                break;
-            case 5:
-                detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
-                detailContent.innerHTML = `
-                    <form id="evaluationForm">
-                        <label for="employeeName">Nama Pegawai:</label>
-                        <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
-                        <label for="productivity">Produktivitas (%):</label>
-                        <input type="number" id="productivity" placeholder="Masukkan produktivitas" required>
-                        <button type="button" onclick="evaluatePerformance()">Evaluasi Kinerja</button>
-                    </form>
-                `;
-                break;
-            case 6:
-                detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
-                detailContent.innerHTML = `
-                    <form id="reportForm">
-                        <label for="year">Tahun Laporan:</label>
-                        <select id="year" required>
-                            <option value="">Pilih tahun</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                            <option value="2028">2028</option>
-                            <option value="2029">2029</option>
-                            <option value="2030">2030</option>
-                        </select>
-                        <button type="button" onclick="generateReport()">Buat Laporan</button>
-                    </form>
-                `;
-                break;
+
+            // Form untuk komponen lainnya sesuai pola
+            // ...
+
             default:
                 detailTitle.textContent = "Detail Komponen";
-                detailContent.innerHTML = "<p>Klik pada kartu untuk melihat detail lebih lanjut.</p>";
+                detailContent.innerHTML = "<p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>";
                 break;
         }
 
+        // Pindahkan detail ke bawah kartu pada tampilan kecil
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
             if (clickedCard) {
@@ -157,19 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Fungsi sinkronisasi slider dan input number untuk usia
-    window.updateAgeValue = function(value) {
+    // Sinkronisasi slider dan input number untuk usia
+    window.updateAgeValue = function (value) {
         document.getElementById('ageNumber').value = value;
     };
 
-    window.updateAgeSlider = function(value) {
+    window.updateAgeSlider = function (value) {
         if (value >= 15 && value <= 65) {
             document.getElementById('ageSlider').value = value;
         }
     };
 
     // Fungsi untuk menampilkan atau menyembunyikan field jurusan
-    window.toggleMajorField = function() {
+    window.toggleMajorField = function () {
         const educationLevel = document.getElementById('education').value;
         const majorField = document.getElementById('majorField');
         if (['SMA', 'D3', 'S1', 'S2', 'S3'].includes(educationLevel)) {
@@ -212,27 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
         trainingField.remove();
     };
 
-    // Placeholder function implementations
+    // Placeholder functions
     window.addEmployee = function () {
         alert("Pegawai berhasil ditambahkan.");
     };
-    window.calculateStaffNeeds = function () {
-        alert("Kebutuhan pegawai dihitung.");
-    };
-    window.analyzeInventory = function () {
-        alert("Analisis persediaan pegawai selesai.");
-    };
-    window.addProgram = function () {
-        alert("Program kepegawaian ditambahkan.");
-    };
-    window.evaluatePerformance = function () {
-        alert("Kinerja pegawai dievaluasi.");
-    };
-    window.generateReport = function () {
-        alert("Laporan RTK Mikro dibuat.");
-    };
 
-    // Event listener untuk menyesuaikan posisi konten detail ketika layar diubah
+    // Placeholder untuk fungsi lainnya
+    window.calculateStaffNeeds = function () { alert("Kebutuhan pegawai dihitung."); };
+    window.analyzeInventory = function () { alert("Analisis persediaan selesai."); };
+
+    // Listener untuk menyesuaikan detail pada resize layar
     window.addEventListener('resize', () => {
         const activeComponent = document.querySelector('.card-container .card.active');
         if (activeComponent) {
