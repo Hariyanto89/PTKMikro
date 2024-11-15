@@ -7,7 +7,7 @@
 
 /* Styling Body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f7f9;
     color: #333;
     display: flex;
@@ -20,7 +20,7 @@ body {
 /* Styling Header */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 header h1 {
@@ -157,19 +157,29 @@ form input:focus, form select:focus {
 }
 
 /* Pelatihan Container */
+.training-container {
+    margin-top: 30px;
+}
+
+.training-container h2 {
+    font-size: 1.5rem;
+    color: #005b99;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .training-field {
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
     border: 1px dashed #ccc;
     border-radius: 5px;
     background-color: #fdfdfd;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .training-field label {
-    margin-bottom: 5px;
     font-size: 0.9rem;
     color: #555;
 }
@@ -203,6 +213,48 @@ form input:focus, form select:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f0f8ff;
     transition: opacity 0.3s ease;
+}
+
+.detail-container h2 {
+    color: #005b99;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.detail-container p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Tabel Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #007acc;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f7fb;
+}
+
+tr:hover td {
+    background-color: #e6f7ff;
 }
 
 /* Responsive Styling */
