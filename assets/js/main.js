@@ -41,8 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="Perempuan">Perempuan</option>
                         </select>
 
+                        <!-- Pendidikan dengan pilihan jurusan -->
                         <label for="education">Pendidikan:</label>
-                        <input type="text" id="education" placeholder="Masukkan tingkat pendidikan" required>
+                        <select id="education" onchange="toggleMajorField()" required>
+                            <option value="">Pilih pendidikan</option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA">SMA</option>
+                            <option value="D3">D3</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
+
+            <div id="majorField" style="display: none;">
+                <label for="major">Jurusan:</label>
+                <input type="text" id="major" placeholder="Masukkan jurusan pendidikan">
+            </div>
 
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
