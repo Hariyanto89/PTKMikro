@@ -25,29 +25,22 @@ header {
 
 header h1 {
     color: #005b99;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 header p {
-    color: #333;
-    font-size: 1rem;
+    color: #555;
+    font-size: 1.2rem;
 }
 
-/* Kontainer Utama */
-.content-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-}
-
-/* Styling Kartu */
+/* Styling Card Container */
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
+    max-width: 1200px;
 }
 
 .card {
@@ -56,35 +49,149 @@ header p {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s, background-color 0.3s;
+    cursor: pointer;
 }
 
 .card h3 {
     color: #005b99;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
 }
 
 .card p {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
+.card:hover {
+    background-color: #f0f8ff;
+    transform: translateY(-5px);
+}
+
+/* Styling Buttons */
 .button {
     text-decoration: none;
-    background-color: #005b99;
+    background-color: #007acc;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
-    display: block;
+    display: inline-block;
     text-align: center;
+    margin-top: 10px;
     transition: background-color 0.3s;
 }
 
 .button:hover {
-    background-color: #007acc;
+    background-color: #005b99;
+}
+
+.button-add {
+    background-color: #28a745;
+}
+
+.button-add:hover {
+    background-color: #218838;
+}
+
+.button-remove {
+    background-color: #dc3545;
+}
+
+.button-remove:hover {
+    background-color: #c82333;
+}
+
+.button-secondary {
+    background-color: #ffc107;
+}
+
+.button-secondary:hover {
+    background-color: #e0a800;
+}
+
+/* Styling Form */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+form input[type="file"] {
+    padding: 5px;
+}
+
+form input:focus, form select:focus {
+    border-color: #007acc;
+    outline: none;
+}
+
+/* Usia Slider & Input */
+.age-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.age-input-container input[type="range"] {
+    flex-grow: 1;
+}
+
+/* Pelatihan Container */
+.training-field {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.training-field label {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.training-details input, .training-details select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.training-field .remove-training {
+    align-self: flex-end;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.training-field .remove-training:hover {
+    background-color: #c82333;
 }
 
 /* Kontainer Detail */
@@ -98,96 +205,20 @@ header p {
     transition: opacity 0.3s ease;
 }
 
-.detail-container.show-below {
-    background-color: #e6ffe6; /* Hijau muda */
-}
-
-/* Tampilan Tabel */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #007acc;
-    color: white;
-}
-
-td {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-tr:nth-child(even) td {
-    background-color: #f1f7fb;
-}
-
-tr:hover td {
-    background-color: #e6f7ff;
-}
-
 /* Responsive Styling */
 @media (max-width: 767px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
     .content-container {
-        display: block;
+        flex-direction: column;
     }
-    .detail-container.show-below {
-        margin-top: 10px;
+
+    form {
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 8px;
     }
-}
-
-/* Styling Dropdown dan Tombol di Form */
-#reportForm select, 
-#reportForm button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#reportForm select {
-    color: #333;
-    background-color: #f9f9f9;
-}
-
-#reportForm button {
-    background-color: #007acc;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#reportForm button:hover {
-    background-color: #005b99;
-}
-
-/* Notifikasi */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #007acc;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeInOut 3s ease forwards;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
 }
