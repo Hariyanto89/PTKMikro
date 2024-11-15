@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </select>
 
                         <!-- Pendidikan dengan pilihan jurusan -->
-                        <label for="education">Pendidikan:</label>
+                        <label for="education">Pendidikan Terakhir:</label>
                         <select id="education" onchange="toggleMajorField()" required>
                             <option value="">Pilih pendidikan</option>
                             <option value="SD">SD</option>
