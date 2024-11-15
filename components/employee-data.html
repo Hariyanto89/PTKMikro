@@ -30,8 +30,16 @@
             </select>
 
             <label for="education">Pendidikan:</label>
-            <input type="text" id="education" placeholder="Masukkan tingkat pendidikan" required>
-
+            <select id="position" required>
+                <option value="">Pilih jabatan</option>
+                <option value="Manajer">Manajer</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Staff">Staff</option>
+                <option value="Operator">Operator</option>
+                <option value="Intern">Intern</option>
+                <!-- Tambahkan lebih banyak opsi jabatan sesuai kebutuhan -->
+            </select>
+            
             <label for="experience">Pengalaman (tahun):</label>
             <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
 
