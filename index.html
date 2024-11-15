@@ -53,28 +53,29 @@
     <!-- Form Data Pelatihan -->
     <div id="trainingContainer" class="training-container">
         <h2>Data Pelatihan Pegawai</h2>
-        <div class="training-details">
-            <label for="trainingYear">Tahun:</label>
-            <input type="number" id="trainingYear" placeholder="Tahun pelatihan" min="2000" max="2030" required>
+        <div class="training-field">
+            <div class="training-details">
+                <label for="trainingYear">Tahun:</label>
+                <input type="number" id="trainingYear" placeholder="Tahun pelatihan" min="2000" max="2030" required>
 
-            <label for="trainingInstitution">Lembaga Pelatihan:</label>
-            <input type="text" id="trainingInstitution" placeholder="Nama lembaga pelatihan" required>
+                <label for="trainingInstitution">Lembaga Pelatihan:</label>
+                <input type="text" id="trainingInstitution" placeholder="Nama lembaga pelatihan" required>
 
-            <label for="trainingField">Bidang Keahlian:</label>
-            <input type="text" id="trainingField" placeholder="Bidang keahlian" required>
+                <label for="trainingField">Bidang Keahlian:</label>
+                <input type="text" id="trainingField" placeholder="Bidang keahlian" required>
 
-            <label for="trainingCertificate">Unggah Sertifikat:</label>
-            <input type="file" id="trainingCertificate" accept=".jpg,.jpeg,.png,.pdf">
+                <label for="trainingCertificate">Unggah Sertifikat:</label>
+                <input type="file" id="trainingCertificate" accept=".jpg,.jpeg,.png,.pdf">
 
-            <label for="certificateLink">Link Sertifikat:</label>
-            <input type="url" id="certificateLink" placeholder="Link sertifikat (opsional)">
+                <label for="certificateLink">Link Sertifikat:</label>
+                <input type="url" id="certificateLink" placeholder="Link sertifikat (opsional)">
+            </div>
         </div>
         <button type="button" class="add-training" onclick="addTrainingField()">Tambah Pelatihan</button>
     </div>
 
     <!-- Script untuk penanganan dinamis -->
     <script>
-        // Fungsi untuk menambahkan field pelatihan baru
         function addTrainingField() {
             const trainingContainer = document.getElementById('trainingContainer');
             const newField = document.createElement('div');
@@ -101,10 +102,9 @@
             trainingContainer.appendChild(newField);
         }
 
-        // Fungsi untuk menghapus field pelatihan
         function removeTrainingField(button) {
-            const trainingField = button.parentElement;
-            trainingField.remove();
+            const fieldToRemove = button.parentElement;
+            fieldToRemove.remove();
         }
     </script>
 </body>
