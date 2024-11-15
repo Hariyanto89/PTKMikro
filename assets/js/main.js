@@ -17,20 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     <form id="employeeForm">
                         <label for="name">Nama Pegawai:</label>
                         <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
+                        
                         <label for="position">Jabatan:</label>
-                        <input type="text" id="position" placeholder="Masukkan jabatan pegawai" required>
+                        <select id="position" required>
+                            <option value="">Pilih jabatan</option>
+                            <option value="Manajer">Manajer</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Operator">Operator</option>
+                            <option value="Intern">Intern</option>
+                        </select>
+
                         <label for="age">Usia:</label>
                         <input type="number" id="age" placeholder="Masukkan usia pegawai" required>
+                        
                         <label for="gender">Jenis Kelamin:</label>
                         <select id="gender" required>
                             <option value="">Pilih jenis kelamin</option>
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
+
                         <label for="education">Pendidikan:</label>
                         <input type="text" id="education" placeholder="Masukkan tingkat pendidikan" required>
+
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
+
                         <button type="button" onclick="addEmployee()">Tambah Pegawai</button>
                     </form>
                 `;
@@ -113,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        // Pindahkan konten detail di bawah kartu jika dalam mode mobile
         if (isMobile) {
             const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
             if (clickedCard) {
