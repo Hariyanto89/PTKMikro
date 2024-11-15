@@ -54,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="S3">S3</option>
                         </select>
 
-            <div id="majorField" style="display: none;">
-                <label for="major">Jurusan:</label>
-                <input type="text" id="major" placeholder="Masukkan jurusan pendidikan">
-            </div>
+                        <!-- Field untuk jurusan, ditampilkan jika pendidikan adalah SMA atau lebih tinggi -->
+                        <div id="majorField" style="display: none;">
+                            <label for="major">Jurusan:</label>
+                            <input type="text" id="major" placeholder="Masukkan jurusan pendidikan">
+                        </div>
 
                         <label for="experience">Pengalaman (tahun):</label>
                         <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
@@ -162,6 +163,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.updateAgeSlider = function(value) {
         if (value >= 15 && value <= 65) {
             document.getElementById('ageSlider').value = value;
+        }
+    };
+
+    // Fungsi untuk menampilkan atau menyembunyikan field jurusan
+    window.toggleMajorField = function() {
+        const educationLevel = document.getElementById('education').value;
+        const majorField = document.getElementById('majorField');
+        if (['SMA', 'D3', 'S1', 'S2', 'S3'].includes(educationLevel)) {
+            majorField.style.display = 'block';
+        } else {
+            majorField.style.display = 'none';
         }
     };
 
