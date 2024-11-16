@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update konten detail berdasarkan nomor komponen
         switch (componentNumber) {
-            case 1:
+            case 1: // Pengumpulan dan Pengolahan Data Pegawai
                 detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
                 detailContent.innerHTML = `
                     <form id="employeeForm">
@@ -74,61 +74,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
                     <form id="workloadForm">
-                        <label for="workload">
-                            Volume Kerja (Misalnya 500 dokumen dalam sebulan):
-                            <span class="tooltip" title="Jumlah total pekerjaan yang harus diselesaikan.">?</span>
-                        </label>
+                        <label for="workload">Volume Kerja:</label>
                         <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
-            
-                        <label for="timeStandard">
-                            Norma Waktu (Misal 1 jam per tugas):
-                            <span class="tooltip" title="Rata-rata waktu penyelesaian setiap tugas.">?</span>
-                        </label>
-                        <input type="number" id="timeStandard" placeholder="Masukkan norma waktu" required>
-            
-                        <label for="targetOutput">
-                            Target Hasil (Misal 20 tugas per pegawai):
-                            <span class="tooltip" title="Jumlah tugas yang diharapkan selesai oleh satu pegawai.">?</span>
-                        </label>
+
+                        <label for="timeStandard">Norma Waktu (jam/menit per tugas):</label>
+                        <div class="time-input">
+                            <input type="number" id="timeStandardHours" placeholder="Jam" min="0" required>
+                            <input type="number" id="timeStandardMinutes" placeholder="Menit" min="0" max="59" required>
+                        </div>
+
+                        <label for="targetOutput">Target Hasil (tugas/pegawai):</label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
-            
-                        <label for="workingHours">
-                            Jam Kerja Harian (Default: 8 jam):
-                            <span class="tooltip" title="Jumlah jam kerja per hari.">?</span>
-                        </label>
-                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian">
-            
-                        <label for="workingDays">
-                            Hari Kerja Periode (Default: 20 hari):
-                            <span class="tooltip" title="Jumlah hari kerja dalam satu periode.">?</span>
-                        </label>
-                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode">
-            
+
+                        <label for="workingHours">Jam Kerja Harian:</label>
+                        <input type="number" id="workingHours" placeholder="Default: 8 jam" required>
+
+                        <label for="workingDays">Hari Kerja Periode:</label>
+                        <input type="number" id="workingDays" placeholder="Default: 20 hari" required>
+
                         <button type="button" class="button button-add" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
                     </form>
                 `;
                 break;
 
-            case 3:
+            case 3: // Analisis Persediaan Pegawai dan Neraca Pegawai
                 detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
                 detailContent.innerHTML = `
                     <form id="inventoryForm">
                         <label for="currentStaff">Jumlah Pegawai Saat Ini:</label>
                         <input type="number" id="currentStaff" placeholder="Masukkan jumlah pegawai saat ini" required>
+
                         <label for="requiredStaff">Jumlah Pegawai Diperlukan:</label>
                         <input type="number" id="requiredStaff" placeholder="Masukkan jumlah pegawai yang dibutuhkan" required>
+
                         <button type="button" onclick="analyzeInventory()">Analisis Neraca Pegawai</button>
                     </form>
                 `;
                 break;
 
-            case 4:
+            case 4: // Penyusunan Program Kepegawaian
                 detailTitle.textContent = "Penyusunan Program Kepegawaian";
                 detailContent.innerHTML = `
                     <form id="programForm">
                         <label for="programName">Nama Program:</label>
                         <input type="text" id="programName" placeholder="Masukkan nama program" required>
-    
+
                         <label for="programType">Jenis Program:</label>
                         <select id="programType" required>
                             <option value="">Pilih jenis program</option>
@@ -137,54 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="Pengembangan Karir">Pengembangan Karir</option>
                             <option value="Pemensiunan">Pemensiunan</option>
                         </select>
-    
+
                         <label for="duration">Durasi Program (bulan):</label>
                         <input type="number" id="duration" placeholder="Masukkan durasi program" required>
-    
+
                         <button type="button" onclick="addProgram()">Tambah Program</button>
-                    </form>
-                `;
-                break;
-    
-            case 5:
-                detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
-                detailContent.innerHTML = `
-                    <form id="evaluationForm">
-                        <label for="employeeName">Nama Pegawai:</label>
-                        <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
-    
-                        <label for="performanceScore">Skor Kinerja (%):</label>
-                        <input type="number" id="performanceScore" placeholder="Masukkan skor kinerja" required>
-    
-                        <label for="evaluationDate">Tanggal Evaluasi:</label>
-                        <input type="date" id="evaluationDate" required>
-    
-                        <button type="button" onclick="evaluatePerformance()">Evaluasi Kinerja</button>
-                    </form>
-                `;
-                break;
-    
-            case 6:
-                detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
-                detailContent.innerHTML = `
-                    <form id="reportForm">
-                        <label for="reportYear">Tahun Laporan:</label>
-                        <select id="reportYear" required>
-                            <option value="">Pilih tahun</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                        </select>
-    
-                        <label for="reportType">Jenis Laporan:</label>
-                        <select id="reportType" required>
-                            <option value="">Pilih jenis laporan</option>
-                            <option value="Tahunan">Tahunan</option>
-                            <option value="Kuartalan">Kuartalan</option>
-                        </select>
-    
-                        <button type="button" onclick="generateReport()">Buat Laporan</button>
                     </form>
                 `;
                 break;
@@ -207,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Sinkronisasi slider dan input number untuk usia
+    // Fungsi untuk validasi slider usia
     window.updateAgeValue = function (value) {
         document.getElementById('ageNumber').value = value;
     };
@@ -218,11 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Fungsi untuk menampilkan atau menyembunyikan field jurusan
+    // Fungsi untuk menampilkan/menghilangkan jurusan
     window.toggleMajorField = function () {
         const educationLevel = document.getElementById('education').value;
         const majorField = document.getElementById('majorField');
-        if (['SMA', 'D3', 'D4', 'S1', 'S2', 'S3'].includes(educationLevel)) {
+        if (['D3', 'D4', 'S1', 'S2', 'S3'].includes(educationLevel)) {
             majorField.style.display = 'block';
         } else {
             majorField.style.display = 'none';
@@ -261,14 +208,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const trainingField = button.parentElement;
         trainingField.remove();
     };
-
-    // Placeholder functions
-    window.addEmployee = function () {
-        alert("Pegawai berhasil ditambahkan.");
+    // Fungsi untuk menghapus entri pelatihan
+    window.removeTrainingField = function (button) {
+        const trainingField = button.parentElement;
+        if (trainingField) {
+            trainingField.remove();
+        } else {
+            alert("Tidak ada pelatihan untuk dihapus.");
+        }
     };
 
+    // Placeholder untuk fungsi menambahkan pegawai
+    window.addEmployee = function () {
+        const employeeName = document.getElementById('name').value;
+        const position = document.getElementById('position').value;
+
+        if (employeeName && position) {
+            alert(`Pegawai ${employeeName} dengan jabatan ${position} berhasil ditambahkan.`);
+        } else {
+            alert("Mohon lengkapi data pegawai sebelum menambahkan.");
+        }
+    };
+
+    // Placeholder untuk fungsi menghitung kebutuhan pegawai
     window.calculateStaffing = function () {
-        alert("Fungsi kebutuhan pegawai telah dihitung");
+        const workload = document.getElementById('workload').value;
+        const targetOutput = document.getElementById('targetOutput').value;
+
+        if (workload && targetOutput) {
+            alert(`Perhitungan kebutuhan pegawai berhasil. Workload: ${workload}, Target Output: ${targetOutput}`);
+        } else {
+            alert("Mohon lengkapi data input sebelum menghitung kebutuhan pegawai.");
+        }
     };
 
     // Listener untuk menyesuaikan detail pada resize layar
