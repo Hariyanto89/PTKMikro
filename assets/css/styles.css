@@ -29,6 +29,7 @@ header h1 {
     margin-bottom: 10px;
 }
 
+
 header p {
     color: #555;
     font-size: 1.2rem;
@@ -54,6 +55,7 @@ header p {
 }
 
 .card h3 {
+    text-align: center;
     color: #005b99;
     font-size: 1.4rem;
     margin-bottom: 10px;
