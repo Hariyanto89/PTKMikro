@@ -70,15 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 break;
 
-            case 2:
+            case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
                     <form id="workloadForm">
-                        <label for="workload">Beban Kerja:</label>
-                        <input type="number" id="workload" placeholder="Masukkan beban kerja" required>
+                        <label for="workload">Volume Kerja:</label>
+                        <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
+
                         <label for="normTime">Norma Waktu:</label>
                         <input type="number" id="normTime" placeholder="Masukkan norma waktu" required>
-                        <button type="button" onclick="calculateStaffNeeds()">Hitung Kebutuhan Pegawai</button>
+
+                        <label for="targetOutput">Target Hasil:</label>
+                        <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
+
+                        <button type="button" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
                     </form>
                 `;
                 break;
