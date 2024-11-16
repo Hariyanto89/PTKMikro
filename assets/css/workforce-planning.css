@@ -54,7 +54,8 @@ form label {
     margin-bottom: 5px;
 }
 
-form input {
+form input,
+form select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -63,6 +64,7 @@ form input {
     box-sizing: border-box;
 }
 
+/* Input Time Styling */
 form .time-input {
     display: flex;
     gap: 10px;
@@ -158,6 +160,17 @@ button:active {
     border: 2px solid #005b99;
 }
 
+/* Styling Rangkuman Input */
+#summaryInput {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #007acc;
+    border-radius: 8px;
+    background: #f0f8ff;
+    font-size: 1rem;
+    color: #333;
+}
+
 /* Responsif */
 @media (max-width: 768px) {
     body {
@@ -176,33 +189,4 @@ button:active {
         flex-direction: column;
         gap: 15px;
     }
-}
-
-/* Tooltip Styling */
-.tooltip {
-    cursor: pointer;
-    color: #007acc;
-    font-weight: bold;
-}
-
-.tooltip:hover::after {
-    content: attr(title);
-    position: absolute;
-    background: #333;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-}
-
-/* Styling Rangkuman Input */
-#summaryInput {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #007acc;
-    border-radius: 8px;
-    background: #f0f8ff;
-    font-size: 1rem;
-    color: #333;
 }
