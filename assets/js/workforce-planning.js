@@ -1,15 +1,20 @@
 function calculateStaffing() {
     const workloadInput = document.getElementById('workload');
-    const timeStandardInput = document.getElementById('timeStandard');
+    const timeStandardHoursInput = document.getElementById('timeStandardHours');
+    const timeStandardMinutesInput = document.getElementById('timeStandardMinutes');
     const targetOutputInput = document.getElementById('targetOutput');
     const workingHoursInput = document.getElementById('workingHours');
     const workingDaysInput = document.getElementById('workingDays');
 
     const workload = parseFloat(workloadInput.value);
-    const timeStandard = parseFloat(timeStandardInput.value);
+    const timeStandardHours = parseFloat(timeStandardHoursInput.value) || 0; // Default 0 jika kosong
+    const timeStandardMinutes = parseFloat(timeStandardMinutesInput.value) || 0; // Default 0 jika kosong
     const targetOutput = parseFloat(targetOutputInput.value);
     const workingHours = parseFloat(workingHoursInput.value) || 8; // Default 8 jam/hari
     const workingDays = parseFloat(workingDaysInput.value) || 20; // Default 20 hari/periode
+
+    // Konversi norma waktu ke dalam jam desimal
+    const timeStandard = timeStandardHours + timeStandardMinutes / 60;
 
     // Validasi input
     if (isNaN(workload) || workload <= 0) {
@@ -18,7 +23,7 @@ function calculateStaffing() {
         return;
     }
     if (isNaN(timeStandard) || timeStandard <= 0) {
-        timeStandardInput.focus();
+        timeStandardHoursInput.focus();
         alert("Mohon masukkan norma waktu yang valid (angka positif).");
         return;
     }
@@ -38,13 +43,15 @@ function calculateStaffing() {
         return;
     }
 
-    // Kalkulasi kebutuhan pegawai
+    // Kalkulasi total jam kerja per periode
     const totalWorkingHoursPerPeriod = workingHours * workingDays;
+
+    // Kalkulasi kebutuhan pegawai
     const staffingRequirement = Math.ceil((workload * timeStandard) / (targetOutput * totalWorkingHoursPerPeriod));
 
     // Menampilkan hasil kalkulasi
     document.getElementById('displayWorkload').textContent = workload.toLocaleString();
-    document.getElementById('displayTimeStandard').textContent = timeStandard.toLocaleString();
+    document.getElementById('displayTimeStandard').textContent = `${timeStandardHours} jam ${timeStandardMinutes} menit`;
     document.getElementById('displayTargetOutput').textContent = targetOutput.toLocaleString();
     document.getElementById('displayWorkingHours').textContent = workingHours.toLocaleString();
     document.getElementById('displayWorkingDays').textContent = workingDays.toLocaleString();
@@ -58,5 +65,5 @@ function calculateStaffing() {
     resultBox.style.borderRadius = "8px";
 
     // Log hasil ke konsol (opsional untuk debugging)
-    console.log(`Volume Kerja: ${workload}, Norma Waktu: ${timeStandard}, Target Hasil: ${targetOutput}, Jam Kerja Harian: ${workingHours}, Hari Kerja Periode: ${workingDays}, Kebutuhan Pegawai: ${staffingRequirement}`);
+    console.log(`Volume Kerja: ${workload}, Norma Waktu: ${timeStandard} jam, Target Hasil: ${targetOutput}, Jam Kerja Harian: ${workingHours}, Hari Kerja Periode: ${workingDays}, Kebutuhan Pegawai: ${staffingRequirement}`);
 }
