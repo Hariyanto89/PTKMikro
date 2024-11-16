@@ -50,29 +50,38 @@
         </div>
     </div>
 
-    <!-- Form Data Pelatihan -->
-    <div id="trainingContainer" class="training-container">
-        <h2>Data Pelatihan Pegawai</h2>
-        <div class="training-field">
-            <div class="training-details">
-                <label for="trainingYear">Tahun:</label>
-                <input type="number" id="trainingYear" placeholder="Tahun pelatihan" min="2000" max="2030" required>
+    <!-- Script untuk penanganan dinamis -->
+    <script>
+        function addTrainingField() {
+            const trainingContainer = document.getElementById('trainingContainer');
+            const newField = document.createElement('div');
+            newField.classList.add('training-field');
+            newField.innerHTML = `
+                <div class="training-details">
+                    <label>Tahun:</label>
+                    <input type="number" class="training-year" placeholder="Tahun pelatihan" min="2000" max="2030" required>
 
-                <label for="trainingInstitution">Lembaga Pelatihan:</label>
-                <input type="text" id="trainingInstitution" placeholder="Nama lembaga pelatihan" required>
+                    <label>Lembaga Pelatihan:</label>
+                    <input type="text" class="training-institution" placeholder="Nama lembaga pelatihan" required>
 
-                <label for="trainingField">Bidang Keahlian:</label>
-                <input type="text" id="trainingField" placeholder="Bidang keahlian" required>
+                    <label>Bidang Keahlian:</label>
+                    <input type="text" class="training-field-input" placeholder="Bidang keahlian" required>
 
-                <label for="trainingCertificate">Unggah Sertifikat:</label>
-                <input type="file" id="trainingCertificate" accept=".jpg,.jpeg,.png,.pdf">
+                    <label>Unggah Sertifikat:</label>
+                    <input type="file" class="training-certificate" accept=".jpg,.jpeg,.png,.pdf">
 
-                <label for="certificateLink">Link Sertifikat:</label>
-                <input type="url" id="certificateLink" placeholder="Link sertifikat (opsional)">
-            </div>
-        </div>
-        <button type="button" class="add-training" onclick="addTrainingField()">Tambah Pelatihan</button>
-    </div>
+                    <label>Link Sertifikat:</label>
+                    <input type="url" class="certificate-link" placeholder="Link sertifikat (opsional)">
+                </div>
+                <button type="button" class="remove-training" onclick="removeTrainingField(this)">Hapus</button>
+            `;
+            trainingContainer.appendChild(newField);
+        }
 
-</body>
+        function removeTrainingField(button) {
+            const fieldToRemove = button.parentElement;
+            fieldToRemove.remove();
+        }
+    </script>
+    </body>
 </html>
