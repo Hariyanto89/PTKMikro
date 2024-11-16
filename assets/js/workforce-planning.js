@@ -1,10 +1,26 @@
 function calculateStaffing() {
-    const workload = parseFloat(document.getElementById('workload').value);
-    const timeStandard = parseFloat(document.getElementById('timeStandard').value);
-    const targetOutput = parseFloat(document.getElementById('targetOutput').value);
+    const workloadInput = document.getElementById('workload');
+    const timeStandardInput = document.getElementById('timeStandard');
+    const targetOutputInput = document.getElementById('targetOutput');
 
-    if (isNaN(workload) || isNaN(timeStandard) || isNaN(targetOutput)) {
-        alert("Mohon isi semua data dengan benar.");
+    const workload = parseFloat(workloadInput.value);
+    const timeStandard = parseFloat(timeStandardInput.value);
+    const targetOutput = parseFloat(targetOutputInput.value);
+
+    // Validasi input
+    if (isNaN(workload) || workload <= 0) {
+        workloadInput.focus();
+        alert("Mohon masukkan volume kerja yang valid (angka positif).");
+        return;
+    }
+    if (isNaN(timeStandard) || timeStandard <= 0) {
+        timeStandardInput.focus();
+        alert("Mohon masukkan norma waktu yang valid (angka positif).");
+        return;
+    }
+    if (isNaN(targetOutput) || targetOutput <= 0) {
+        targetOutputInput.focus();
+        alert("Mohon masukkan target hasil yang valid (angka positif).");
         return;
     }
 
@@ -12,9 +28,18 @@ function calculateStaffing() {
     const staffingRequirement = Math.ceil((workload * timeStandard) / targetOutput);
 
     // Menampilkan hasil kalkulasi
-    document.getElementById('displayWorkload').textContent = workload;
-    document.getElementById('displayTimeStandard').textContent = timeStandard;
-    document.getElementById('displayTargetOutput').textContent = targetOutput;
-    document.getElementById('staffingRequirement').textContent = staffingRequirement;
-}
+    document.getElementById('displayWorkload').textContent = workload.toLocaleString();
+    document.getElementById('displayTimeStandard').textContent = timeStandard.toLocaleString();
+    document.getElementById('displayTargetOutput').textContent = targetOutput.toLocaleString();
+    document.getElementById('staffingRequirement').textContent = staffingRequirement.toLocaleString();
 
+    // Styling hasil proyeksi untuk lebih menonjol
+    const resultBox = document.getElementById('projectionResult');
+    resultBox.style.border = "2px solid #007acc";
+    resultBox.style.backgroundColor = "#e6f7ff";
+    resultBox.style.padding = "15px";
+    resultBox.style.borderRadius = "8px";
+
+    // Log hasil ke konsol (opsional untuk debugging)
+    console.log(`Volume Kerja: ${workload}, Norma Waktu: ${timeStandard}, Target Hasil: ${targetOutput}, Kebutuhan Pegawai: ${staffingRequirement}`);
+}
