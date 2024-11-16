@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <option value="SMP">SMP</option>
                             <option value="SMA">SMA</option>
                             <option value="D3">D3</option>
+                            <option value="D4">D4</option>
                             <option value="S1">S1</option>
                             <option value="S2">S2</option>
                             <option value="S3">S3</option>
@@ -57,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <input type="text" id="major" placeholder="Masukkan jurusan pendidikan">
                         </div>
 
-                        <label for="experience">Pengalaman (tahun):</label>
-                        <input type="number" id="experience" placeholder="Masukkan pengalaman kerja dalam tahun" required>
+                        <label for="specialization">Spesialisasi (Opsional):</label>
+                        <input type="text" id="specialization" placeholder="Masukkan spesialisasi jika ada">
 
                         <label>Pelatihan yang Pernah Diikuti:</label>
                         <div id="trainingContainer"></div>
@@ -194,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.toggleMajorField = function () {
         const educationLevel = document.getElementById('education').value;
         const majorField = document.getElementById('majorField');
-        if (['SMA', 'D3', 'S1', 'S2', 'S3'].includes(educationLevel)) {
+        if (['SMA', 'D3', 'D4', 'S1', 'S2', 'S3'].includes(educationLevel)) {
             majorField.style.display = 'block';
         } else {
             majorField.style.display = 'none';
