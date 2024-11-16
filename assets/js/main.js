@@ -74,13 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
                     <form id="workloadForm">
-                        <label for="workload">Volume Kerja (dalam satuan tugas per periode):</label>
+                        <label for="workload">Volume Kerja (total pekerjaan yang harus diselesaikan lembaga. Misalnya 500 dokumen dalam sebulan):</label>
                         <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
             
-                        <label for="timeStandard">Norma Waktu (dalam jam per tugas):</label>
+                        <label for="timeStandard">Norma Waktu (Penyelesaian pekerjaan untuk satu hasil. Misal 1 jam):</label>
                         <input type="number" id="timeStandard" placeholder="Masukkan norma waktu" required>
             
-                        <label for="targetOutput">Target Hasil (dalam satuan tugas):</label>
+                        <label for="targetOutput">Target Hasil (Target kerja satu pekerja dalam sebulan. Misal 20 Dokumen):</label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
             
                         <label for="workingHours">Jam Kerja Harian (normal : 8 Jam sehari):</label>
