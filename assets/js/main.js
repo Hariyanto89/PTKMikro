@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const mainContent = document.querySelector('main');
+
     // Fungsi untuk menampilkan detail di bawah kartu pada layar kecil
     window.showDetail = function (componentNumber) {
         const detailTitle = document.getElementById('detailTitle');
@@ -9,7 +12,7 @@
         switch (componentNumber) {
             case 1:
                 detailTitle.textContent = "Pengumpulan dan Pengolahan Data Pegawai";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="employeeForm">
                         <label for="name">Nama Pegawai:</label>
                         <input type="text" id="name" placeholder="Masukkan nama pegawai" required>
@@ -64,36 +67,51 @@
 
                         <button type="button" class="submit-employee" onclick="addEmployee()">Tambah Pegawai</button>
                     </form>
-                ;
+                `;
                 break;
 
             case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="workloadForm">
-                        <label for="workload">Volume Kerja (total pekerjaan yang harus diselesaikan lembaga. Misalnya 500 dokumen dalam sebulan):</label>
+                        <label for="workload">
+                            Volume Kerja (Misalnya 500 dokumen dalam sebulan):
+                            <span class="tooltip" title="Jumlah total pekerjaan yang harus diselesaikan.">?</span>
+                        </label>
                         <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
             
-                        <label for="timeStandard">Norma Waktu (Penyelesaian pekerjaan untuk satu hasil. Misal 1 jam):</label>
+                        <label for="timeStandard">
+                            Norma Waktu (Misal 1 jam per tugas):
+                            <span class="tooltip" title="Rata-rata waktu penyelesaian setiap tugas.">?</span>
+                        </label>
                         <input type="number" id="timeStandard" placeholder="Masukkan norma waktu" required>
             
-                        <label for="targetOutput">Target Hasil (Target kerja satu pekerja dalam sebulan. Misal 20 Dokumen):</label>
+                        <label for="targetOutput">
+                            Target Hasil (Misal 20 tugas per pegawai):
+                            <span class="tooltip" title="Jumlah tugas yang diharapkan selesai oleh satu pegawai.">?</span>
+                        </label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
             
-                        <label for="workingHours">Jam Kerja Harian (normal : 8 Jam sehari):</label>
-                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian (default: 8)">
+                        <label for="workingHours">
+                            Jam Kerja Harian (Default: 8 jam):
+                            <span class="tooltip" title="Jumlah jam kerja per hari.">?</span>
+                        </label>
+                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian">
             
-                        <label for="workingDays">Hari Kerja Periode (Normal : 20 perbulan):</label>
-                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode (default: 20)">
+                        <label for="workingDays">
+                            Hari Kerja Periode (Default: 20 hari):
+                            <span class="tooltip" title="Jumlah hari kerja dalam satu periode.">?</span>
+                        </label>
+                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode">
             
-                        <button type="button" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
+                        <button type="button" class="button button-add" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
                     </form>
-                ;
+                `;
                 break;
 
             case 3:
                 detailTitle.textContent = "Analisis Persediaan Pegawai dan Neraca Pegawai";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="inventoryForm">
                         <label for="currentStaff">Jumlah Pegawai Saat Ini:</label>
                         <input type="number" id="currentStaff" placeholder="Masukkan jumlah pegawai saat ini" required>
@@ -101,11 +119,12 @@
                         <input type="number" id="requiredStaff" placeholder="Masukkan jumlah pegawai yang dibutuhkan" required>
                         <button type="button" onclick="analyzeInventory()">Analisis Neraca Pegawai</button>
                     </form>
-                ;
+                `;
                 break;
+
             case 4:
                 detailTitle.textContent = "Penyusunan Program Kepegawaian";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="programForm">
                         <label for="programName">Nama Program:</label>
                         <input type="text" id="programName" placeholder="Masukkan nama program" required>
@@ -124,12 +143,12 @@
     
                         <button type="button" onclick="addProgram()">Tambah Program</button>
                     </form>
-                ;
+                `;
                 break;
     
             case 5:
                 detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="evaluationForm">
                         <label for="employeeName">Nama Pegawai:</label>
                         <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
@@ -142,12 +161,12 @@
     
                         <button type="button" onclick="evaluatePerformance()">Evaluasi Kinerja</button>
                     </form>
-                ;
+                `;
                 break;
     
             case 6:
                 detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
-                detailContent.innerHTML = 
+                detailContent.innerHTML = `
                     <form id="reportForm">
                         <label for="reportYear">Tahun Laporan:</label>
                         <select id="reportYear" required>
@@ -167,7 +186,7 @@
     
                         <button type="button" onclick="generateReport()">Buat Laporan</button>
                     </form>
-                ;
+                `;
                 break;
 
             default:
@@ -177,7 +196,7 @@
         }
 
         if (isMobile) {
-            const clickedCard = document.querySelector(.card-container .card:nth-child(${componentNumber}));
+            const clickedCard = document.querySelector(`.card-container .card:nth-child(${componentNumber})`);
             if (clickedCard) {
                 clickedCard.insertAdjacentElement('afterend', detailContainer);
             }
@@ -215,7 +234,7 @@
         const trainingContainer = document.getElementById('trainingContainer');
         const newField = document.createElement('div');
         newField.classList.add('training-field');
-        newField.innerHTML = 
+        newField.innerHTML = `
             <div class="training-details">
                 <label for="trainingYear">Tahun:</label>
                 <input type="number" class="training-year" placeholder="Tahun pelatihan" min="2000" max="2030" required>
@@ -233,7 +252,7 @@
                 <input type="url" class="certificate-link" placeholder="Link sertifikat (opsional)">
             </div>
             <button type="button" class="remove-training" onclick="removeTrainingField(this)">Hapus</button>
-        ;
+        `;
         trainingContainer.appendChild(newField);
     };
 
@@ -248,19 +267,6 @@
         alert("Pegawai berhasil ditambahkan.");
     };
 
-    window.calculateStaffNeeds = function () {
-        alert("Kebutuhan pegawai dihitung.");
-    };
-
-    window.analyzeInventory = function () {
-        alert("Analisis persediaan selesai.");
-    };
-
-    window.generateReport = function () {
-        alert("Laporan RTK Mikro dibuat.");
-    };
-
-    // Placeholder untuk fungsi kebutuhan pegawai
     window.calculateStaffing = function () {
         alert("Fungsi kebutuhan pegawai telah dihitung");
     };
