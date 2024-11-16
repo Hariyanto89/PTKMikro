@@ -136,6 +136,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 break;
 
+            case 5:
+                detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
+                detailContent.innerHTML = `
+                    <form id="evaluationForm">
+                        <label for="employeeName">Nama Pegawai:</label>
+                        <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
+    
+                        <label for="performanceScore">Skor Kinerja (%):</label>
+                        <input type="number" id="performanceScore" placeholder="Masukkan skor kinerja" required>
+    
+                        <label for="evaluationDate">Tanggal Evaluasi:</label>
+                        <input type="date" id="evaluationDate" required>
+    
+                        <button type="button" onclick="evaluatePerformance()">Evaluasi Kinerja</button>
+                    </form>
+                `;
+                break;
+    
+            case 6:
+                detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
+                detailContent.innerHTML = `
+                    <form id="reportForm">
+                        <label for="reportYear">Tahun Laporan:</label>
+                        <select id="reportYear" required>
+                            <option value="">Pilih tahun</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+    
+                        <label for="reportType">Jenis Laporan:</label>
+                        <select id="reportType" required>
+                            <option value="">Pilih jenis laporan</option>
+                            <option value="Tahunan">Tahunan</option>
+                            <option value="Kuartalan">Kuartalan</option>
+                        </select>
+    
+                        <button type="button" onclick="generateReport()">Buat Laporan</button>
+                    </form>
+                `;
+                break;
+                
             default:
                 detailTitle.textContent = "Detail Komponen";
                 detailContent.innerHTML = "<p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>";
