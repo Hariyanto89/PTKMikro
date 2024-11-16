@@ -74,15 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
                     <form id="workloadForm">
-                        <label for="workload">Volume Kerja:</label>
+                        <label for="workload">Volume Kerja (dalam satuan tugas per periode):</label>
                         <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
-
-                        <label for="normTime">Norma Waktu:</label>
-                        <input type="number" id="normTime" placeholder="Masukkan norma waktu" required>
-
-                        <label for="targetOutput">Target Hasil:</label>
+            
+                        <label for="timeStandard">Norma Waktu (dalam jam per tugas):</label>
+                        <input type="number" id="timeStandard" placeholder="Masukkan norma waktu" required>
+            
+                        <label for="targetOutput">Target Hasil (dalam satuan tugas):</label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
-
+            
+                        <label for="workingHours">Jam Kerja Harian (opsional, default: 8):</label>
+                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian (default: 8)">
+            
+                        <label for="workingDays">Hari Kerja Periode (opsional, default: 20):</label>
+                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode (default: 20)">
+            
                         <button type="button" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
                     </form>
                 `;
@@ -255,6 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.generateReport = function () {
         alert("Laporan RTK Mikro dibuat.");
+    };
+
+    // Placeholder untuk fungsi kebutuhan pegawai
+    window.calculateStaffing = function () {
+        alert("Fungsi kebutuhan pegawai diproses melalui workforce-planning.js");
     };
 
     // Listener untuk menyesuaikan detail pada resize layar
