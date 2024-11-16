@@ -276,3 +276,23 @@ tr:hover td {
         border-radius: 8px;
     }
 }
+
+#detailContent {
+    text-align: center; /* Menengahkan teks */
+    font-weight: bold; /* Membuat teks tebal */
+    color: red; /* Memberikan warna merah */
+    padding: 20px; /* Menambahkan padding agar terlihat lebih rapi */
+}
+
+#detailContent p {
+    animation: pulse 2s infinite; /* Menambahkan animasi */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1); /* Ukuran normal */
+    }
+    50% {
+        transform: scale(1.1); /* Sedikit membesar */
+    }
+}
