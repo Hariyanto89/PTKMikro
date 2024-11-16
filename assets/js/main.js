@@ -70,47 +70,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 break;
 
-case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
+            case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
                 detailTitle.textContent = "Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja";
                 detailContent.innerHTML = `
-                    <form id="workloadCalculator">
+                    <form id="workloadForm">
                         <label for="workload">
-                            Volume Kerja (satuan tugas per periode): 
-                            <span class="tooltip" title="Jumlah total tugas yang harus diselesaikan dalam satu periode.">?</span>
+                            Volume Kerja (Misalnya 500 dokumen dalam sebulan):
+                            <span class="tooltip" title="Jumlah total pekerjaan yang harus diselesaikan.">?</span>
                         </label>
                         <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
-
+            
                         <label for="timeStandard">
-                            Norma Waktu (jam/menit per tugas): 
-                            <span class="tooltip" title="Rata-rata waktu yang dibutuhkan untuk menyelesaikan satu tugas.">?</span>
+                            Norma Waktu (Misal 1 jam per tugas):
+                            <span class="tooltip" title="Rata-rata waktu penyelesaian setiap tugas.">?</span>
                         </label>
-                        <div class="time-input">
-                            <input type="number" id="timeStandardHours" placeholder="Jam" min="0" required>
-                            <input type="number" id="timeStandardMinutes" placeholder="Menit" min="0" max="59" required>
-                        </div>
-
+                        <input type="number" id="timeStandard" placeholder="Masukkan norma waktu" required>
+            
                         <label for="targetOutput">
-                            Target Hasil (tugas per pegawai): 
-                            <span class="tooltip" title="Jumlah tugas yang diharapkan selesai oleh satu pegawai dalam periode tertentu.">?</span>
+                            Target Hasil (Misal 20 tugas per pegawai):
+                            <span class="tooltip" title="Jumlah tugas yang diharapkan selesai oleh satu pegawai.">?</span>
                         </label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
-
-                        <label for="workingHours">Jam Kerja Harian (opsional, default: 8):</label>
-                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian (default: 8)">
-
-                        <label for="workingDays">Hari Kerja Periode (opsional, default: 20):</label>
-                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode (default: 20)">
-
+            
+                        <label for="workingHours">
+                            Jam Kerja Harian (Default: 8 jam):
+                            <span class="tooltip" title="Jumlah jam kerja per hari.">?</span>
+                        </label>
+                        <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian">
+            
+                        <label for="workingDays">
+                            Hari Kerja Periode (Default: 20 hari):
+                            <span class="tooltip" title="Jumlah hari kerja dalam satu periode.">?</span>
+                        </label>
+                        <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode">
+            
                         <button type="button" class="button button-add" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
                     </form>
-                    <div id="projectionResult" class="result-box">
-                        <p>Volume Kerja: <span id="displayWorkload">-</span></p>
-                        <p>Norma Waktu: <span id="displayTimeStandard">-</span></p>
-                        <p>Target Hasil: <span id="displayTargetOutput">-</span></p>
-                        <p>Jam Kerja Harian: <span id="displayWorkingHours">-</span></p>
-                        <p>Hari Kerja Periode: <span id="displayWorkingDays">-</span></p>
-                        <p><strong>Kebutuhan Pegawai: <span id="staffingRequirement">-</span> orang</strong></p>
-                    </div>
                 `;
                 break;
 
@@ -126,6 +121,7 @@ case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
                     </form>
                 `;
                 break;
+                
             case 4:
                 detailTitle.textContent = "Penyusunan Program Kepegawaian";
                 detailContent.innerHTML = `
@@ -193,7 +189,7 @@ case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
                 `;
                 break;
 
-            default:
+       default:
                 detailTitle.textContent = "Detail Komponen";
                 detailContent.innerHTML = "<p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>";
                 break;
@@ -211,54 +207,6 @@ case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
         }
     };
 
-    // Fungsi Kalkulasi Kebutuhan Pegawai
-    window.calculateStaffing = function () {
-        const workloadInput = document.getElementById('workload');
-        const timeStandardHoursInput = document.getElementById('timeStandardHours');
-        const timeStandardMinutesInput = document.getElementById('timeStandardMinutes');
-        const targetOutputInput = document.getElementById('targetOutput');
-        const workingHoursInput = document.getElementById('workingHours');
-        const workingDaysInput = document.getElementById('workingDays');
-
-        const workload = parseFloat(workloadInput.value);
-        const timeStandardHours = parseFloat(timeStandardHoursInput.value) || 0;
-        const timeStandardMinutes = parseFloat(timeStandardMinutesInput.value) || 0;
-        const targetOutput = parseFloat(targetOutputInput.value);
-        const workingHours = parseFloat(workingHoursInput.value) || 8; // Default 8 jam/hari
-        const workingDays = parseFloat(workingDaysInput.value) || 20; // Default 20 hari/bulan
-
-        const timeStandard = timeStandardHours + (timeStandardMinutes / 60); // Gabungkan jam dan menit
-        const totalWorkingHoursPerPeriod = workingHours * workingDays;
-
-        // Validasi input
-        if (isNaN(workload) || workload <= 0) {
-            workloadInput.focus();
-            alert("Mohon masukkan volume kerja yang valid (angka positif).");
-            return;
-        }
-        if (isNaN(timeStandard) || timeStandard <= 0) {
-            timeStandardHoursInput.focus();
-            alert("Mohon masukkan norma waktu yang valid (angka positif).");
-            return;
-        }
-        if (isNaN(targetOutput) || targetOutput <= 0) {
-            targetOutputInput.focus();
-            alert("Mohon masukkan target hasil yang valid (angka positif).");
-            return;
-        }
-
-        // Kalkulasi kebutuhan pegawai
-        const staffingRequirement = Math.ceil((workload * timeStandard) / (targetOutput * totalWorkingHoursPerPeriod));
-
-        // Tampilkan hasil kalkulasi
-        document.getElementById('displayWorkload').textContent = workload;
-        document.getElementById('displayTimeStandard').textContent = `${timeStandardHours} jam ${timeStandardMinutes} menit`;
-        document.getElementById('displayTargetOutput').textContent = targetOutput;
-        document.getElementById('displayWorkingHours').textContent = workingHours;
-        document.getElementById('displayWorkingDays').textContent = workingDays;
-        document.getElementById('staffingRequirement').textContent = staffingRequirement;
-    };
-    
     // Sinkronisasi slider dan input number untuk usia
     window.updateAgeValue = function (value) {
         document.getElementById('ageNumber').value = value;
@@ -319,19 +267,6 @@ case 2: // Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja
         alert("Pegawai berhasil ditambahkan.");
     };
 
-    window.calculateStaffNeeds = function () {
-        alert("Kebutuhan pegawai dihitung.");
-    };
-
-    window.analyzeInventory = function () {
-        alert("Analisis persediaan selesai.");
-    };
-
-    window.generateReport = function () {
-        alert("Laporan RTK Mikro dibuat.");
-    };
-
-    // Placeholder untuk fungsi kebutuhan pegawai
     window.calculateStaffing = function () {
         alert("Fungsi kebutuhan pegawai telah dihitung");
     };
