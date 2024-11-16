@@ -94,6 +94,72 @@ document.addEventListener('DOMContentLoaded', () => {
                     </form>
                 `;
                 break;
+            case 4:
+                detailTitle.textContent = "Penyusunan Program Kepegawaian";
+                detailContent.innerHTML = `
+                    <form id="programForm">
+                        <label for="programName">Nama Program:</label>
+                        <input type="text" id="programName" placeholder="Masukkan nama program" required>
+    
+                        <label for="programType">Jenis Program:</label>
+                        <select id="programType" required>
+                            <option value="">Pilih jenis program</option>
+                            <option value="Rekrutmen">Rekrutmen</option>
+                            <option value="Pelatihan">Pelatihan</option>
+                            <option value="Pengembangan Karir">Pengembangan Karir</option>
+                            <option value="Pemensiunan">Pemensiunan</option>
+                        </select>
+    
+                        <label for="duration">Durasi Program (bulan):</label>
+                        <input type="number" id="duration" placeholder="Masukkan durasi program" required>
+    
+                        <button type="button" onclick="addProgram()">Tambah Program</button>
+                    </form>
+                `;
+                break;
+    
+            case 5:
+                detailTitle.textContent = "Pengendalian dan Evaluasi Kinerja Pegawai";
+                detailContent.innerHTML = `
+                    <form id="evaluationForm">
+                        <label for="employeeName">Nama Pegawai:</label>
+                        <input type="text" id="employeeName" placeholder="Masukkan nama pegawai" required>
+    
+                        <label for="performanceScore">Skor Kinerja (%):</label>
+                        <input type="number" id="performanceScore" placeholder="Masukkan skor kinerja" required>
+    
+                        <label for="evaluationDate">Tanggal Evaluasi:</label>
+                        <input type="date" id="evaluationDate" required>
+    
+                        <button type="button" onclick="evaluatePerformance()">Evaluasi Kinerja</button>
+                    </form>
+                `;
+                break;
+    
+            case 6:
+                detailTitle.textContent = "Penyusunan Laporan dan Dokumen RTK Mikro";
+                detailContent.innerHTML = `
+                    <form id="reportForm">
+                        <label for="reportYear">Tahun Laporan:</label>
+                        <select id="reportYear" required>
+                            <option value="">Pilih tahun</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+    
+                        <label for="reportType">Jenis Laporan:</label>
+                        <select id="reportType" required>
+                            <option value="">Pilih jenis laporan</option>
+                            <option value="Tahunan">Tahunan</option>
+                            <option value="Kuartalan">Kuartalan</option>
+                        </select>
+    
+                        <button type="button" onclick="generateReport()">Buat Laporan</button>
+                    </form>
+                `;
+                break;
 
             default:
                 detailTitle.textContent = "Detail Komponen";
