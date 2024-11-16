@@ -19,14 +19,20 @@
             <h2>Masukkan Data Perhitungan</h2>
             <form id="workloadCalculator">
                 <label for="workload">
-                    Volume Kerja (dalam satuan tugas per periode): 
-                    <span class="tooltip" title="Jumlah total tugas yang harus diselesaikan dalam satu periode waktu tertentu.">?</span>
+                    Volume Kerja (satuan tugas per periode): 
+                    <span class="tooltip" title="Jumlah total tugas yang harus diselesaikan dalam satu periode.">?</span>
                 </label>
                 <input type="number" id="workload" placeholder="Masukkan volume kerja" required>
+                <label for="volumeUnit">Satuan Periode:</label>
+                <select id="volumeUnit">
+                    <option value="monthly" selected>Bulanan</option>
+                    <option value="weekly">Mingguan</option>
+                    <option value="daily">Harian</option>
+                </select>
 
                 <label for="timeStandard">
-                    Norma Waktu: 
-                    <span class="tooltip" title="Rata-rata waktu (dalam jam dan menit) yang dibutuhkan untuk menyelesaikan satu tugas.">?</span>
+                    Norma Waktu (jam/menit per tugas): 
+                    <span class="tooltip" title="Rata-rata waktu yang dibutuhkan untuk menyelesaikan satu tugas.">?</span>
                 </label>
                 <div class="time-input">
                     <input type="number" id="timeStandardHours" placeholder="Jam" min="0" required>
@@ -34,22 +40,16 @@
                 </div>
 
                 <label for="targetOutput">
-                    Target Hasil (dalam satuan tugas): 
-                    <span class="tooltip" title="Jumlah tugas yang diharapkan dapat diselesaikan selama periode waktu tertentu.">?</span>
+                    Target Hasil (tugas per pegawai): 
+                    <span class="tooltip" title="Jumlah tugas yang diharapkan selesai oleh satu pegawai dalam periode tertentu.">?</span>
                 </label>
                 <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
 
-                <label for="workingHours">
-                    Jam Kerja Harian (opsional): 
-                    <span class="tooltip" title="Jumlah jam kerja efektif per pegawai per hari (default: 8 jam).">?</span>
-                </label>
-                <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian">
+                <label for="workingHours">Jam Kerja Harian (opsional, default: 8):</label>
+                <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian (default: 8)">
 
-                <label for="workingDays">
-                    Hari Kerja Periode (opsional): 
-                    <span class="tooltip" title="Jumlah hari kerja dalam periode tertentu (default: 20 hari).">?</span>
-                </label>
-                <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode">
+                <label for="workingDays">Hari Kerja Periode (opsional, default: 20):</label>
+                <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode (default: 20)">
 
                 <button type="button" class="button button-add" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
             </form>
@@ -59,12 +59,26 @@
         <section>
             <h2>Hasil Proyeksi</h2>
             <div id="projectionResult" class="result-box">
-                <p>Volume Kerja: <span id="displayWorkload">-</span> tugas</p>
-                <p>Norma Waktu: <span id="displayTimeStandard">-</span> jam dan menit</p>
-                <p>Target Hasil: <span id="displayTargetOutput">-</span> tugas</p>
-                <p>Jam Kerja Harian: <span id="displayWorkingHours">-</span> jam</p>
-                <p>Hari Kerja Periode: <span id="displayWorkingDays">-</span> hari</p>
+                <p>Volume Kerja: <span id="displayWorkload">-</span></p>
+                <p>Norma Waktu: <span id="displayTimeStandard">-</span></p>
+                <p>Target Hasil: <span id="displayTargetOutput">-</span></p>
+                <p>Jam Kerja Harian: <span id="displayWorkingHours">-</span></p>
+                <p>Hari Kerja Periode: <span id="displayWorkingDays">-</span></p>
                 <p><strong>Kebutuhan Pegawai: <span id="staffingRequirement">-</span> orang</strong></p>
+            </div>
+        </section>
+
+        <!-- Rangkuman Input -->
+        <section>
+            <h2>Rangkuman Data Input</h2>
+            <div id="summaryInput">
+                <ul>
+                    <li>Volume Kerja: <span id="summaryWorkload">-</span></li>
+                    <li>Norma Waktu: <span id="summaryTimeStandard">-</span></li>
+                    <li>Target Hasil: <span id="summaryTargetOutput">-</span></li>
+                    <li>Jam Kerja Harian: <span id="summaryWorkingHours">-</span></li>
+                    <li>Hari Kerja Periode: <span id="summaryWorkingDays">-</span></li>
+                </ul>
             </div>
         </section>
     </main>
