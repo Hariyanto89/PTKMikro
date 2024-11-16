@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="targetOutput">Target Hasil (dalam satuan tugas):</label>
                         <input type="number" id="targetOutput" placeholder="Masukkan target hasil" required>
             
-                        <label for="workingHours">Jam Kerja Harian (opsional, default: 8):</label>
+                        <label for="workingHours">Jam Kerja Harian (normal : 8 Jam sehari):</label>
                         <input type="number" id="workingHours" placeholder="Masukkan jam kerja harian (default: 8)">
             
-                        <label for="workingDays">Hari Kerja Periode (opsional, default: 20):</label>
+                        <label for="workingDays">Hari Kerja Periode (Normal : 20 perbulan):</label>
                         <input type="number" id="workingDays" placeholder="Masukkan hari kerja periode (default: 20)">
             
                         <button type="button" onclick="calculateStaffing()">Hitung Kebutuhan Pegawai</button>
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Placeholder untuk fungsi kebutuhan pegawai
     window.calculateStaffing = function () {
-        alert("Fungsi kebutuhan pegawai diproses melalui workforce-planning.js");
+        alert("Fungsi kebutuhan pegawai telah dihitung");
     };
 
     // Listener untuk menyesuaikan detail pada resize layar
