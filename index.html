@@ -15,42 +15,46 @@
     </head>
 <body>
 <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
-        <ul>
-            <li class="active">Beranda</li>
-            <li>Data Pegawai</li>
-            <li>Kebutuhan Pegawai</li>
-            <li>Evaluasi Kinerja</li>
-            <li>Laporan</li>
-        </ul>
-    </aside>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+            <ul>
+                <li class="active">Beranda</li>
+                <li>Data Pegawai</li>
+                <li>Kebutuhan Pegawai</li>
+                <li>Evaluasi Kinerja</li>
+                <li>Laporan</li>
+            </ul>
+        </aside>
 
-    <!-- Content -->
-    <div class="content">
-        <header>
-            <h1>Dashboard PTK Mikro</h1>
-            <p>Selamat datang di aplikasi perencanaan tenaga kerja mikro!</p>
-        </header>
-        <section>
-            <h2>Informasi Utama</h2>
-            <p>Panel utama untuk analisis dan pelaporan.</p>
-        </section>
-    </div>
-</div>
-
-       <main class="content">
+        <!-- Content -->
+        <main class="content">
             <header>
-                <h1>PTK Mikro</h1>
-                <p>Dashboard untuk mengelola tenaga kerja mikro.</p>
+                <h1>Dashboard PTK Mikro</h1>
+                <p>Selamat datang di aplikasi perencanaan tenaga kerja mikro!</p>
             </header>
-            <section id="main-content">
-                <!-- Konten Dinamis -->
-                <p>Pilih menu di sebelah kiri untuk melihat detail.</p>
+            <section>
+                <h2>Informasi Utama</h2>
+                <div class="grid">
+                    <div class="widget">
+                        <h3>Data Pegawai</h3>
+                        <p>Detail informasi pegawai terkini.</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Kebutuhan Pegawai</h3>
+                        <p>Analisis kebutuhan tenaga kerja.</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Evaluasi Kinerja</h3>
+                        <p>Penilaian produktivitas pegawai.</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Laporan</h3>
+                        <p>Laporan kinerja dan data perusahaan.</p>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
