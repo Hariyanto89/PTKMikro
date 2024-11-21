@@ -12,81 +12,36 @@
     <link rel="stylesheet" href="assets/css/performance-evaluation.css">
     <link rel="stylesheet" href="assets/css/reporting.css">
     <link rel="stylesheet" href="assets/css/workforce-planning.css">
-</head>
+    </head>
 <body>
     <header>
         <h1>Perencanaan Tenaga Kerja Mikro (PTK Mikro)</h1>
         <p>Berbasis Keputusan Menteri Tenaga Kerja dan Transmigrasi No. 52 Tahun 2014</p>
     </header>
 
-    <!-- Container untuk Kartu -->
-    <div class="card-container">
-        <div class="card" onclick="showDetail(1)">
-            <h3>Pengumpulan dan Pengolahan Data Pegawai</h3>
-            <p>Data umum perusahaan, struktur organisasi, informasi jabatan, serta data karakteristik pegawai seperti usia, pendidikan, pelatihan, dan pengalaman.</p>
-        </div>
-        <div class="card" onclick="showDetail(2)">
-            <h3>Perencanaan Kebutuhan Pegawai Berdasarkan Beban Kerja</h3>
-            <p>Menentukan kebutuhan pegawai dengan membandingkan volume kerja dan norma waktu pada setiap jabatan.</p>
-        </div>
-        <div class="card" onclick="showDetail(3)">
-            <h3>Analisis Persediaan Pegawai dan Neraca Pegawai</h3>
-            <p>Menganalisis kesenjangan antara persediaan (jumlah pegawai yang ada) dan kebutuhan tenaga kerja.</p>
-        </div>
-        <div class="card" onclick="showDetail(4)">
-            <h3>Penyusunan Program Kepegawaian</h3>
-            <p>Menyusun rencana program untuk rekrutmen, seleksi, penempatan, pelatihan, dan pemensiunan pegawai.</p>
-        </div>
-        <div class="card" onclick="showDetail(5)">
-            <h3>Pengendalian dan Evaluasi Kinerja Pegawai</h3>
-            <p>Menyediakan laporan evaluasi berkala terhadap produktivitas pegawai untuk menentukan apakah kebutuhan tenaga kerja telah tercapai.</p>
-        </div>
-        <div class="card" onclick="showDetail(6)">
-            <h3>Penyusunan Laporan dan Dokumen RTK Mikro</h3>
-            <p>Setiap perusahaan diwajibkan menyusun laporan RTK Mikro untuk menilai perkembangan tenaga kerja dan menyesuaikannya dengan kebutuhan.</p>
-        </div>
+    <div class="layout">
+        <!-- Side Navigation -->
+        <nav class="sidebar">
+            <ul>
+                <li onclick="navigate('dashboard')">Dashboard</li>
+                <li onclick="navigate('employee-data')">Data Pegawai</li>
+                <li onclick="navigate('staffing-analysis')">Analisis Kebutuhan</li>
+                <li onclick="navigate('performance')">Evaluasi Kinerja</li>
+                <li onclick="navigate('reporting')">Laporan</li>
+            </ul>
+        </nav>
+
+       <main class="content">
+            <header>
+                <h1>PTK Mikro</h1>
+                <p>Dashboard untuk mengelola tenaga kerja mikro.</p>
+            </header>
+            <section id="main-content">
+                <!-- Konten Dinamis -->
+                <p>Pilih menu di sebelah kiri untuk melihat detail.</p>
+            </section>
+        </main>
     </div>
-
-    <!-- Bagian Detail di Bawah Kartu -->
-    <div class="detail-container">
-        <h2 id="detailTitle">Detail Komponen</h2>
-        <div id="detailContent">
-            <p>Klik pada kartu di atas untuk melihat detail lebih lanjut.</p>
-        </div>
-    </div>
-
-    <!-- Script untuk penanganan dinamis -->
-    <script>
-        function addTrainingField() {
-            const trainingContainer = document.getElementById('trainingContainer');
-            const newField = document.createElement('div');
-            newField.classList.add('training-field');
-            newField.innerHTML = `
-                <div class="training-details">
-                    <label>Tahun:</label>
-                    <input type="number" class="training-year" placeholder="Tahun pelatihan" min="2000" max="2030" required>
-
-                    <label>Lembaga Pelatihan:</label>
-                    <input type="text" class="training-institution" placeholder="Nama lembaga pelatihan" required>
-
-                    <label>Bidang Keahlian:</label>
-                    <input type="text" class="training-field-input" placeholder="Bidang keahlian" required>
-
-                    <label>Unggah Sertifikat:</label>
-                    <input type="file" class="training-certificate" accept=".jpg,.jpeg,.png,.pdf">
-
-                    <label>Link Sertifikat:</label>
-                    <input type="url" class="certificate-link" placeholder="Link sertifikat (opsional)">
-                </div>
-                <button type="button" class="remove-training" onclick="removeTrainingField(this)">Hapus</button>
-            `;
-            trainingContainer.appendChild(newField);
-        }
-
-        function removeTrainingField(button) {
-            const fieldToRemove = button.parentElement;
-            fieldToRemove.remove();
-        }
-    </script>
-    </body>
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
