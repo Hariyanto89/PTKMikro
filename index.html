@@ -14,17 +14,31 @@
     <link rel="stylesheet" href="assets/css/workforce-planning.css">
     </head>
 <body>
-    <div class="layout">
-        <!-- Side Navigation -->
-        <nav class="sidebar">
-            <ul>
-                <li onclick="navigate('dashboard')">Dashboard</li>
-                <li onclick="navigate('employee-data')">Data Pegawai</li>
-                <li onclick="navigate('staffing-analysis')">Analisis Kebutuhan</li>
-                <li onclick="navigate('performance')">Evaluasi Kinerja</li>
-                <li onclick="navigate('reporting')">Laporan</li>
-            </ul>
-        </nav>
+<div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+        <ul>
+            <li class="active">Beranda</li>
+            <li>Data Pegawai</li>
+            <li>Kebutuhan Pegawai</li>
+            <li>Evaluasi Kinerja</li>
+            <li>Laporan</li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <div class="content">
+        <header>
+            <h1>Dashboard PTK Mikro</h1>
+            <p>Selamat datang di aplikasi perencanaan tenaga kerja mikro!</p>
+        </header>
+        <section>
+            <h2>Informasi Utama</h2>
+            <p>Panel utama untuk analisis dan pelaporan.</p>
+        </section>
+    </div>
+</div>
 
        <main class="content">
             <header>
