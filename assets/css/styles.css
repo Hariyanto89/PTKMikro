@@ -29,50 +29,62 @@ header h1 {
     margin-bottom: 10px;
 }
 
-
 header p {
     color: #555;
     font-size: 1.2rem;
 }
 
-/* Styling Card Container */
-.card-container {
+/* Dashboard Container */
+.dashboard-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1200px;
 }
 
-.card {
+/* Widget Style */
+.widget {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s, background-color 0.3s;
-    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.card h3 {
-    text-align: center;
-    color: #005b99;
+.widget h3 {
     font-size: 1.4rem;
+    color: #005b99;
     margin-bottom: 10px;
 }
 
-.card p {
-    color: #666;
+.widget p {
     font-size: 1rem;
+    color: #666;
     margin-bottom: 20px;
 }
 
-.card:hover {
-    background-color: #f0f8ff;
-    transform: translateY(-5px);
+.widget button {
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Styling Buttons */
+.widget button:hover {
+    background-color: #005b99;
+}
+
+.widget:hover {
+    transform: translateY(-5px);
+    background-color: #f0f8ff;
+}
+
+/* Button Style */
 .button {
     text-decoration: none;
     background-color: #007acc;
@@ -90,209 +102,9 @@ header p {
     background-color: #005b99;
 }
 
-.button-add {
-    background-color: #28a745;
-}
-
-.button-add:hover {
-    background-color: #218838;
-}
-
-.button-remove {
-    background-color: #dc3545;
-}
-
-.button-remove:hover {
-    background-color: #c82333;
-}
-
-.button-secondary {
-    background-color: #ffc107;
-}
-
-.button-secondary:hover {
-    background-color: #e0a800;
-}
-
-/* Styling Form */
-form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form label {
-    font-size: 1rem;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
-}
-
-form input, form select, form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-
-form input[type="file"] {
-    padding: 5px;
-}
-
-form input:focus, form select:focus {
-    border-color: #007acc;
-    outline: none;
-}
-
-/* Usia Slider & Input */
-.age-input-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.age-input-container input[type="range"] {
-    flex-grow: 1;
-}
-
-/* Pelatihan Container */
-.training-container {
-    margin-top: 30px;
-}
-
-.training-container h2 {
-    font-size: 1.5rem;
-    color: #005b99;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.training-field {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px dashed #ccc;
-    border-radius: 5px;
-    background-color: #fdfdfd;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.training-field label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.training-details input, .training-details select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.training-field .remove-training {
-    align-self: flex-end;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.training-field .remove-training:hover {
-    background-color: #c82333;
-}
-
-/* Kontainer Detail */
-.detail-container {
-    width: 100%;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f0f8ff;
-    transition: opacity 0.3s ease;
-}
-
-.detail-container h2 {
-    color: #005b99;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.detail-container p {
-    font-size: 1rem;
-    color: #555;
-}
-
-/* Tabel Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #007acc;
-    color: white;
-}
-
-td {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-tr:nth-child(even) td {
-    background-color: #f1f7fb;
-}
-
-tr:hover td {
-    background-color: #e6f7ff;
-}
-
-/* Responsive Styling */
-@media (max-width: 767px) {
-    .card-container {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
         grid-template-columns: 1fr;
-    }
-
-    .content-container {
-        flex-direction: column;
-    }
-
-    form {
-        padding: 20px;
-        border: 1px solid #ddd;
-        background-color: #fff;
-        border-radius: 8px;
-    }
-}
-
-#detailContent {
-    text-align: center; /* Menengahkan teks */
-    font-weight: bold; /* Membuat teks tebal */
-    color: red; /* Memberikan warna merah */
-    padding: 20px; /* Menambahkan padding agar terlihat lebih rapi */
-}
-
-#detailContent p {
-    animation: pulse 2s infinite; /* Menambahkan animasi */
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1); /* Ukuran normal */
-    }
-    50% {
-        transform: scale(1.1); /* Sedikit membesar */
     }
 }
