@@ -26,14 +26,9 @@
     transition: width 0.3s ease;
 }
 
-.sidebar.collapsed {
-    width: 60px;
-}
-
 .sidebar ul {
     list-style: none;
     width: 100%;
-    padding: 0;
 }
 
 .sidebar li {
@@ -134,18 +129,10 @@
         justify-content: space-around;
     }
 
-    .sidebar.collapsed {
-        display: none;
-    }
-
     .sidebar li {
         text-align: center;
         margin-bottom: 0;
         padding: 10px 5px;
-    }
-
-    .sidebar-toggle {
-        display: block;
     }
 
     .content {
