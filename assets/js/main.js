@@ -1,3 +1,8 @@
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('collapsed');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const content = document.getElementById('main-content');
 
